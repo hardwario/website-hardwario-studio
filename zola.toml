@@ -1,0 +1,3 @@
+base_url = "https://tvojedomena.cz"
+title = "Název Webovky"
+compile_sass = false
