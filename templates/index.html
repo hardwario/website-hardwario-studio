@@ -1,17 +1,40 @@
 {% extends "base.html" %}
 {% import "components/step.html" as component_step %}
+{% import "components/service.html" as component_split %}
+
 
 {% block content %}
-<section class="steps">
-    <h2 class="title">Nabízíme</h2>
-    <div class="steps-grid">
-        {% for step in section.extra.step %}
+<div class="page">
+    <section class="steps">
+        <h2 class="title">Nabízíme</h2>
+        <div class="steps-grid">
+            {% for step in section.extra.step %}
             {{ component_step::render(
-                number=step.cislo,
-                title=step.nazev,
-                desc=step.popis
+            number=step.number,
+            title=step.title,
+            desc=step.desc
             ) }}
-        {% endfor %}
-    </div>
-</section>
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+    <section class="services">
+        <h2 class="title">Naše služby</h2>
+        <div class="services-grid">
+            {% for service in section.extra.service %}
+            {{ component_split::render(
+            image=service.image,
+            title=service.title,
+            description=service.desc,
+            list=service.list
+            ) }}
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+
+
 {% endblock content %}
