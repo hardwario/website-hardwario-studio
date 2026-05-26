@@ -5,11 +5,11 @@
 <section class="steps">
     <h2 class="title">Nabízíme</h2>
     <div class="steps-grid">
-        {% for krok in section.extra.kroky %}
+        {% for step in section.extra.step %}
             {{ component_step::render(
-                cislo=krok.cislo,
-                nazev=krok.nazev,
-                popis=krok.popis
+                number=step.cislo,
+                title=step.nazev,
+                desc=step.popis
             ) }}
         {% endfor %}
     </div>
