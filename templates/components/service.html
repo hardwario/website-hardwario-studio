@@ -1,0 +1,18 @@
+{% macro render(image, title, description, list) %}
+<div class="split">
+    <div class="split__image-box">
+        <img src="{{ image }}" alt="{{ title }}" class="split__image">
+    </div>
+    <div class="split__content">
+        <h3 class="split__title">{{ title }}</h3>
+        <p class="split__desc">{{ description }}</p>
+        
+        <ul class="split__list">
+            {% for item in list %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+        
+    </div>
+</div>
+{% endmacro %}

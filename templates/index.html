@@ -1,29 +1,32 @@
 {% extends "base.html" %}
 {% import "components/step.html" as component_step %}
-{% import "components/project.html" as component_project %}
-{% block content %}
-<section class="steps">
-    <h2 class="title">Nabízíme</h2>
-    <div class="steps-grid">
-        {% for krok in section.extra.kroky %}
-            {{ component_step::render(
-                cislo=krok.cislo,
-                nazev=krok.nazev,
-                popis=krok.popis
-            ) }}
-        {% endfor %}
-    </div>
-</section>
 
-<section class="projects">
-    <h2 class="title">Naše projekty</h2>
-    <div class="projects-grid">
-        {% for project in section.extra.projects %}
-            {{ component_project::render(
-                image=project.image,
-                title=project.title,
-                desc=project.desc,
-                imageAlt=project.imageAlt
+{% block content %}
+<div class="page">
+    <section class="steps">
+        <h2 class="title">Nabízíme</h2>
+        <div class="steps-grid">
+            {% for step in section.extra.step %}
+            {{ component_step::render(
+            number=step.number,
+            title=step.title,
+            desc=step.desc
+            ) }}
+            {% endfor %}
+        </div>
+    </section>
+
+
+
+    <section class="services">
+        <h2 class="title">Naše služby</h2>
+        <div class="services-grid">
+            {% for service in section.extra.service %}
+            {{ component_split::render(
+            image=service.image,
+            title=service.title,
+            description=service.desc,
+            list=service.list
             ) }}
         {% endfor %}
     </div>
