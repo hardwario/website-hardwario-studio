@@ -1,0 +1,7 @@
+{% macro render(cislo, nazev, popis) %}
+<div class="step">
+    <div class="step__number">{{ cislo }}</div>
+    <h3 class="step__title">{{ nazev }}</h3>
+    <p class="step__desc">{{ popis }}</p>
+</div>
+{% endmacro %}

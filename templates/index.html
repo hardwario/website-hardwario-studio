@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config.title }}</title>
-   
-</head>
-<body>
-    
-</body>
-</html>
+{% extends "base.html" %}
+{% import "components/step.html" as component_step %}
+
+{% block content %}
+<section class="steps">
+    <h2 class="title">Nabízíme</h2>
+    <div class="steps-grid">
+        {% for krok in section.extra.kroky %}
+            {{ component_step::render(
+                cislo=krok.cislo,
+                nazev=krok.nazev,
+                popis=krok.popis
+            ) }}
+        {% endfor %}
+    </div>
+</section>
+{% endblock content %}
