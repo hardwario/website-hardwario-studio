@@ -58,3 +58,43 @@ html {
     font-size: 16px;
     line-height: 26px;
 }
+
+
+
+
+.project-content {
+    background-color: #FFFFFF;
+    padding: 40px 32px;
+}
+.projects {
+    padding: 172px 0px 172px 0px;
+    background-color: #F5F5F5;
+}
+.project__card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+.projects-grid {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    gap: 64px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.project__image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px 16px 0px 0px;
+}
+.project__title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    letter-spacing: -0.96px;
+}
+.project__desc {
+    color: #252532;
+    font-size: 16px;
+    line-height: 26px;
+}

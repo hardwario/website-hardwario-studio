@@ -17,4 +17,24 @@ popis = "Barevný tisk CMYK s bílým podtiskem. Parciální lak pro jedinečný
 cislo = "03"
 nazev = "Klimatické Testy"
 popis = "Simulace teplot od -40 °C do +170 °C. Odhalte slabá místa ještě před nasazením."
+
+
+
+[[extra.projects]]
+image = "large-3D-1"
+imageAlt = "Obrázek projektu"
+title = "Průmyslový kryt zařízení"
+desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+
+[[extra.projects]]
+image = "large-3D-1"
+imageAlt = "Obrázek projektu"
+title = "Průmyslový kryt zařízení"
+desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+
+[[extra.projects]]
+image = "large-3D-1"
+imageAlt = "Obrázek projektu"
+title = "Průmyslový kryt zařízení"
+desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
 +++

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "components/step.html" as component_step %}
-
+{% import "components/project.html" as component_project %}
 {% block content %}
 <section class="steps">
     <h2 class="title">Nabízíme</h2>
@@ -10,6 +10,20 @@
                 cislo=krok.cislo,
                 nazev=krok.nazev,
                 popis=krok.popis
+            ) }}
+        {% endfor %}
+    </div>
+</section>
+
+<section class="projects">
+    <h2 class="title">Naše projekty</h2>
+    <div class="projects-grid">
+        {% for project in section.extra.projects %}
+            {{ component_project::render(
+                image=project.image,
+                title=project.title,
+                desc=project.desc,
+                imageAlt=project.imageAlt
             ) }}
         {% endfor %}
     </div>
