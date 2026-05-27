@@ -1,0 +1,15 @@
+{% import "components/button.html" as component_button %}
+
+{% macro render(image, imageAlt, title, desc, primary_label, primary_href, secondary_label, secondary_href) %}
+<section class="contract">
+    <img class="contract__image" src="/images/{{ image }}" alt="{{ imageAlt }}">
+    <div class="contract__content">
+        <h2 class="contract__title">{{ title }}</h2>
+        <p class="contract__desc">{{ desc }}</p>
+        <div class="contract__buttons">
+            {{ component_button::render(label=primary_label, href=primary_href, variant="primary") }}
+            {{ component_button::render(label=secondary_label, href=secondary_href, variant="ghost", icon="arrow-right") }}
+        </div>
+    </div>
+</section>
+{% endmacro %}

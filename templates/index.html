@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% import "components/button.html" as component_button %}
+{% import "components/contract.html" as component_contract %}
 {% import "components/step.html" as component_step %}
 {% import "components/service.html" as component_split %}
 {% import "components/project.html" as component_project %}
@@ -25,25 +27,43 @@
         <div class="services-grid">
             {% for service in section.extra.service %}
             {{ component_split::render(
-            image=service.image,
             title=service.title,
             description=service.desc,
-            list=service.list
+            list=service.list,
+            slides=service.slides
             ) }}
-        {% endfor %}
-    </div>
-</section>
-<section class="projects">
-    <h2 class="title">Naše projekty</h2>
-    <div class="projects-grid">
-        {% for project in section.extra.projects %}
+            {% endfor %}
+        </div>
+    </section>
+    <section class="projects">
+        <h2 class="title">Naše projekty</h2>
+        <div class="projects-grid">
+            {% for project in section.extra.projects %}
             {{ component_project::render(
-                image=project.image,
-                title=project.title,
-                desc=project.desc,
-                imageAlt=project.imageAlt
+            image=project.image,
+            title=project.title,
+            desc=project.desc,
+            imageAlt=project.imageAlt
             ) }}
+            {% endfor %}
+        </div>
+    </section>
+    <section class="contracts">
+        {% for contract in section.extra.contracts %}
+        {{ component_contract::render(
+        image=contract.image,
+        imageAlt=contract.imageAlt,
+        title=contract.title,
+        desc=contract.desc,
+        primary_label=contract.primary_label,
+        primary_href=contract.primary_href,
+        secondary_label=contract.secondary_label,
+        secondary_href=contract.secondary_href
+        ) }}
         {% endfor %}
-    </div>
-</section>
-{% endblock content %}
+    </section>
+
+
+
+
+    {% endblock content %}
