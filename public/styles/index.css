@@ -92,7 +92,7 @@ html {
     letter-spacing: -0.96px;
 }
 .projects__container {
-    max-width: 1440px;
+    max-width: 1640px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -113,7 +113,7 @@ html {
     margin: 0 auto;
     display: grid;
     gap: 64px;
-    max-width: 1640px;
+    width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .project__image {
@@ -224,6 +224,7 @@ html {
     .split {
         gap: 40px;
     }
+
 }
 
 @media (max-width: 768px) {
@@ -267,6 +268,7 @@ html {
      .project__title {
         font-size: 24px;
     }
+    
 }
 
 @media (max-width: 1230px) {
@@ -280,5 +282,10 @@ html {
     border-radius: 16px;
     display: block;
     height: auto;
+}
+
+
+    .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 }
