@@ -6,7 +6,7 @@
 {% import "components/project.html" as component_project %}
 
 {% block content %}
-<section class="hero">
+<section class="hero" id="home">
     <div class="hero__media" aria-hidden="true">
         <iframe
             class="hero__video"
@@ -20,7 +20,7 @@
     <div class="hero__content">
         <h1 class="hero__title">Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj</h1>
         <div class="hero__buttons">
-            {{ component_button::render(label="DOMLUVIT SCHŮZKU", href="#contracts", variant="primary") }}
+            {{ component_button::render(label="DOMLUVIT SCHŮZKU", href="#zakazky", variant="primary") }}
             {{ component_button::render(label="NAŠE SLUŽBY", href="#services", variant="ghost", icon="arrow-right") }}
         </div>
         <div class="hero__mobile-visual">
@@ -29,7 +29,7 @@
     </div>
 </section>
 <div class="page">
-    <section class="steps">
+    <section class="steps" id="ukazky">
         <h2 class="title">Nabízíme</h2>
         <div class="steps-grid">
             {% for step in section.extra.step %}
@@ -55,7 +55,7 @@
         </div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="projekty">
         <div class="projects__container">
             <h2 class="title">Naše projekty</h2>
             <div class="projects-grid">
@@ -71,7 +71,7 @@
         </div>
     </section>
 
-    <section class="contracts" id="contracts">
+    <section class="contracts" id="zakazky">
         {% for contract in section.extra.contracts %}
         {{ component_contract::render(
         image=contract.image,
@@ -86,7 +86,7 @@
         {% endfor %}
     </section>
 <div class="content">
-    <section class="about-us">
+    <section class="about-us" id="about-us">
         <div class="about-us__content">
             <p class="about-us__subtitle">{{ section.extra.about_us.subtitle }}</p>
             <p class="about-us__title">{{ section.extra.about_us.title }}</p>

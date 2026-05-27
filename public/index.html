@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Název Webovky</title>
+    <title>HARDWARIO Studio</title>
     <link rel="stylesheet" href="/styles/index.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,9 +11,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap%22 rel="stylesheet">
 </head>
 <body>
+    <header class="site-header">
+	<div class="site-header__inner">
+		<a class="site-header__brand" href="#home" aria-label="Studio, návrat na začátek stránky">
+			<img class="site-header__brand-logo" src="/images/studio.svg" alt="Studio">
+		</a>
+
+		<nav class="site-header__nav" aria-label="Hlavní navigace">
+			<a class="site-header__link" href="#services">Služby</a>
+			<a class="site-header__link" href="#projekty">Projekty</a>
+			<a class="site-header__link" href="#zakazky">Zakázky</a>
+			<a class="site-header__link" href="#about-us">O nás</a>
+		</nav>
+
+		<div class="site-header__actions">
+			<button class="site-header__theme" type="button" aria-label="Tmavý režim">
+				<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+					<path d="M21 12.6A8.5 8.5 0 0 1 11.4 3a9 9 0 1 0 9.6 9.6Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" />
+				</svg>
+			</button>
+
+			<a class="button button--primary site-header__cta" href="#zakazky">Domluvit schůzku</a>
+
+			<details class="site-header__mobile-menu">
+				<summary class="site-header__burger" aria-label="Otevřít menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</summary>
+
+				<div class="site-header__mobile-panel">
+					<a class="site-header__mobile-link" href="#services">Služby</a>
+					<a class="site-header__mobile-link" href="#projekty">Projekty</a>
+					<a class="site-header__mobile-link" href="#zakazky">Zakázky</a>
+					<a class="site-header__mobile-link" href="#about-us">O nás</a>
+					<div class="site-header__mobile-actions">
+						<button class="site-header__mobile-theme" type="button" aria-label="Tmavý režim">
+							<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+								<path d="M21 12.6A8.5 8.5 0 0 1 11.4 3a9 9 0 1 0 9.6 9.6Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" />
+							</svg>
+						</button>
+						<a class="button button--primary site-header__mobile-cta" href="#zakazky">Domluvit schůzku</a>
+					</div>
+				</div>
+			</details>
+		</div>
+	</div>
+</header>
+
     <main>
         
-<section class="hero">
+<section class="hero" id="home">
     <div class="hero__media" aria-hidden="true">
         <iframe
             class="hero__video"
@@ -29,7 +77,7 @@
         <div class="hero__buttons">
             
 
-<a class="button button--primary" href="#contracts">
+<a class="button button--primary" href="#zakazky">
 	<span class="button__label">DOMLUVIT SCHŮZKU</span>
 	
 </a>
@@ -54,7 +102,7 @@
     </div>
 </section>
 <div class="page">
-    <section class="steps">
+    <section class="steps" id="ukazky">
         <h2 class="title">Nabízíme</h2>
         <div class="steps-grid">
             
@@ -359,7 +407,7 @@
         </div>
     </section>
 
-    <section class="projects">
+    <section class="projects" id="projekty">
         <div class="projects__container">
             <h2 class="title">Naše projekty</h2>
             <div class="projects-grid">
@@ -404,7 +452,7 @@
         </div>
     </section>
 
-    <section class="contracts" id="contracts">
+    <section class="contracts" id="zakazky">
         
         
 <section class="contract">
@@ -472,7 +520,7 @@
         
     </section>
 <div class="content">
-    <section class="about-us">
+    <section class="about-us" id="about-us">
         <div class="about-us__content">
             <p class="about-us__subtitle">O NÁS</p>
             <p class="about-us__title">Kdo jsme?</p>
