@@ -1,8 +1,6 @@
 {% macro render(image, title, desc, imageAlt) %}
 <div class="project__card">
-    <div class="image__container">
-        <img class="project__image" src="/images/{{ image }}.jpg" alt="{{ imageAlt }}">
-    </div>
+    <img class="project__image" src="/images/{{ image }}.jpg" alt="{{ imageAlt }}">
     <div class="project__content">
         <h3 class="project__title">{{ title }}</h3>
         <p class="project__desc">{{ desc }}</p>

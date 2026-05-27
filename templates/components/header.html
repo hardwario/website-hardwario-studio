@@ -13,7 +13,7 @@
 
         <div class="site-header__actions">
 
-            <a class="button button--primary site-header__cta8" href="#form">KONTAKT</a><button
+            <a class="button button--primary site-header__cta" href="#form">KONTAKT</a><button
                 class="site-header__theme" type="button" aria-label="Tmavý režim">
                 <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                     <path d="M21 12.6A8.5 8.5 0 0 1 11.4 3a9 9 0 1 0 9.6 9.6Z" fill="none" stroke="currentColor"
@@ -48,3 +48,26 @@
         </div>
     </div>
 </header>
+
+<script>
+(function () {
+    var menu = document.querySelector('.site-header__mobile-menu');
+    if (!menu) return;
+    var summary = menu.querySelector('summary');
+    var panel = menu.querySelector('.site-header__mobile-panel');
+    if (!summary || !panel) return;
+
+    summary.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (menu.hasAttribute('open')) {
+            menu.classList.add('is-closing');
+            setTimeout(function () {
+                menu.removeAttribute('open');
+                menu.classList.remove('is-closing');
+            }, 520);
+        } else {
+            menu.setAttribute('open', '');
+        }
+    });
+}());
+</script>

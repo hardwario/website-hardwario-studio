@@ -85,6 +85,7 @@
         ) }}
         {% endfor %}
     </section>
+    {% include "components/form.html" %}
 <div class="content">
     <section class="about-us" id="about-us">
         <div class="about-us__content">
@@ -102,12 +103,10 @@
         <div class="product__content">
             <p class="product__title">{{ section.extra.product.title }}</p>
             <p class="product__desc">{{ section.extra.product.desc }}</p>
-            <div class="product__button">
-                {{ component_button::render(label=section.extra.product.button_label, href=section.extra.product.href, variant="primary") }}
-            </div>
+            {{ component_button::render(label=section.extra.product.button_label, href=section.extra.product.href, variant="primary") }}
         </div>
         <div class="product__image">
-            <img src="/images/product.jpg" alt="product image">
+            <img src="/images/product.png" alt="product image">
         </div>
     </section>
     </div>
