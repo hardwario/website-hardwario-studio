@@ -7,15 +7,16 @@ html {
     --color-primary: #E30427;
     --color-secondary: #06367A;
 }
+
 *,
 *::before,
-*::after{
+*::after {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
 }
 
-.page{
+.page {
     display: flex;
     flex-direction: column;
     gap: 300px;
@@ -84,13 +85,15 @@ html {
     background-color: #FFFFFF;
     padding: 40px 32px;
     border-radius: 0px 0px 16px 16px;
-    
+
 }
+
 .projects .title {
     font-size: 64px;
     font-weight: bold;
     letter-spacing: -0.96px;
 }
+
 .projects__container {
     max-width: 1440px;
     margin: 0 auto;
@@ -98,17 +101,20 @@ html {
     flex-direction: column;
     gap: 80px;
 }
+
 .projects {
     padding: 172px 24px 172px 24px;
     background-color: #F5F5F5;
     margin: 0 auto;
     width: 100%;
 }
+
 .project__card {
     display: flex;
     flex-direction: column;
     border-radius: 16px;
 }
+
 .projects-grid {
     margin: 0 auto;
     display: grid;
@@ -116,18 +122,21 @@ html {
     max-width: 1640px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
 .project__image {
     width: 100%;
     height: auto;
     border-radius: 16px 16px 0px 0px;
     display: block;
 }
+
 .project__title {
     font-size: 32px;
     font-weight: bold;
     letter-spacing: -0.96px;
     margin-bottom: 16px;
 }
+
 .project__desc {
     color: #252532;
     font-size: 16px;
@@ -138,7 +147,7 @@ html {
 
 /* SERVICES */
 
-.split{
+.split {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 84px;
@@ -197,7 +206,7 @@ html {
     display: flex;
     flex-direction: column;
     gap: 80px;
-     max-width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0px 24px;
 }
@@ -208,7 +217,7 @@ html {
     gap: 144px;
 }
 
-.split__title{
+.split__title {
     font-weight: bold;
     font-size: 32px;
     line-height: 48px;
@@ -223,7 +232,7 @@ html {
     color: var(--color-primary);
 }
 
-.split__desc{
+.split__desc {
     margin-top: 32px;
     font-weight: 600;
     font-size: 16px;
@@ -234,20 +243,20 @@ html {
 
 .split__list {
     margin-top: 32px;
-    padding-left: 1.2rem; 
+    padding-left: 1.2rem;
 }
 
 .split__list li {
     color: #4D4D4D;
     font-size: 16px;
-    font-weight: 700; 
+    font-weight: 700;
     line-height: 26px;
 }
 
 
 .split__list li::marker {
-    color: var(--color-primary); 
-    font-size: 1.2rem; 
+    color: var(--color-primary);
+    font-size: 1.2rem;
 }
 
 .split__controls {
@@ -260,7 +269,7 @@ html {
     border: 1px solid #E5E7EB;
     border-radius: 9999px;
     background: #fff;
-    padding: 16.75px ;
+    padding: 16.75px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -297,14 +306,15 @@ html {
     gap: 12px;
 }
 
-.contract__image{
+.contract__image {
     padding: 32px;
     border-radius: 16px;
     background-color: #F2FAFF;
-    max-width:133px;
+    max-width: 133px;
     max-height: 128px;
 }
-.contract{
+
+.contract {
     display: flex;
     gap: 64px;
     border: 2px solid #E6E6E6;
@@ -326,6 +336,7 @@ html {
     line-height: 28px;
     letter-spacing: 0.5px;
 }
+
 .contract__desc {
     color: #4D4D4D;
     font-size: 16px;
@@ -334,11 +345,11 @@ html {
     font-weight: 700;
 }
 
-.contracts{
+.contracts {
     display: flex;
     flex-direction: column;
     gap: 92px;
-     max-width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
@@ -462,23 +473,23 @@ html {
         font-size: 40px;
     }
 
-     .project__title {
+    .project__title {
         font-size: 24px;
     }
 }
 
 @media (max-width: 1230px) {
+
     .split:nth-child(even) .split__image-box,
     .split:nth-child(even) .split__content {
         order: initial;
     }
 
     .split__image {
-    width: 100%;
-    border-radius: 16px;
-    display: block;
-    height: auto;
-}
+        width: 100%;
+        border-radius: 16px;
+        display: block;
+        height: auto;
     }
 
     .contract {
@@ -488,7 +499,7 @@ html {
         padding: 24px;
     }
 
-    .contract__image{
+    .contract__image {
         padding: 16px;
         max-width: 96px;
         max-height: 96px;

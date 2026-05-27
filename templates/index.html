@@ -19,9 +19,6 @@
             {% endfor %}
         </div>
     </section>
-
-
-
     <section class="services">
         <h2 class="title">Naše služby</h2>
         <div class="services-grid">
@@ -32,52 +29,39 @@
             list=service.list,
             slides=service.slides
             ) }}
-        {% endfor %}
-    </div>
-</section>
-<section class="projects">
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="projects">
     <div class="projects__container">
     <h2 class="title">Naše projekty</h2>
     <div class="projects-grid">
         {% for project in section.extra.projects %}
-            {% endfor %}
-        </div>
-    </section>
-    <section class="projects">
-        <h2 class="title">Naše projekty</h2>
-        <div class="projects-grid">
-            {% for project in section.extra.projects %}
             {{ component_project::render(
-            image=project.image,
-            title=project.title,
-            desc=project.desc,
-            imageAlt=project.imageAlt
+                image=project.image,
+                title=project.title,
+                desc=project.desc,
+                imageAlt=project.imageAlt
             ) }}
         {% endfor %}
     </div>
     </div>
 </section>
-{% endblock content %}
 
-            {% endfor %}
-        </div>
-    </section>
     <section class="contracts">
         {% for contract in section.extra.contracts %}
-        {{ component_contract::render(
-        image=contract.image,
-        imageAlt=contract.imageAlt,
-        title=contract.title,
-        desc=contract.desc,
-        primary_label=contract.primary_label,
-        primary_href=contract.primary_href,
-        secondary_label=contract.secondary_label,
-        secondary_href=contract.secondary_href
-        ) }}
+            {{ component_contract::render(
+                image=contract.image,
+                imageAlt=contract.imageAlt,
+                title=contract.title,
+                desc=contract.desc,
+                primary_label=contract.primary_label,
+                primary_href=contract.primary_href,
+                secondary_label=contract.secondary_label,
+                secondary_href=contract.secondary_href
+            ) }}
         {% endfor %}
     </section>
-
-
-
-
-    {% endblock content %}
+</div>
+{% endblock content %}
