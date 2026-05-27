@@ -34,6 +34,7 @@
     </div>
 </section>
 <section class="projects">
+    <div class="projects__container">
     <h2 class="title">Naše projekty</h2>
     <div class="projects-grid">
         {% for project in section.extra.projects %}
@@ -44,6 +45,7 @@
                 imageAlt=project.imageAlt
             ) }}
         {% endfor %}
+    </div>
     </div>
 </section>
 {% endblock content %}
