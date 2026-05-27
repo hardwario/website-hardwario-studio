@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% import "components/step.html" as component_step %}
+{% import "components/service.html" as component_split %}
+{% import "components/project.html" as component_project %}
 
 {% block content %}
 <div class="page">
@@ -27,6 +29,19 @@
             title=service.title,
             description=service.desc,
             list=service.list
+            ) }}
+        {% endfor %}
+    </div>
+</section>
+<section class="projects">
+    <h2 class="title">Naše projekty</h2>
+    <div class="projects-grid">
+        {% for project in section.extra.projects %}
+            {{ component_project::render(
+                image=project.image,
+                title=project.title,
+                desc=project.desc,
+                imageAlt=project.imageAlt
             ) }}
         {% endfor %}
     </div>
