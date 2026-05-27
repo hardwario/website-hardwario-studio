@@ -6,6 +6,28 @@
 {% import "components/project.html" as component_project %}
 
 {% block content %}
+<section class="hero">
+    <div class="hero__media" aria-hidden="true">
+        <iframe
+            class="hero__video"
+            src="https://player.vimeo.com/video/1115260939?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&controls=0"
+            title="Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+        <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+        <h1 class="hero__title">Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj</h1>
+        <div class="hero__buttons">
+            {{ component_button::render(label="DOMLUVIT SCHŮZKU", href="#contracts", variant="primary") }}
+            {{ component_button::render(label="NAŠE SLUŽBY", href="#services", variant="ghost", icon="arrow-right") }}
+        </div>
+        <div class="hero__mobile-visual">
+            <img class="hero__mobile-image" src="/images/3D-print-1.jpg" alt="Zakázkový 3D tisk">
+        </div>
+    </div>
+</section>
 <div class="page">
     <section class="steps">
         <h2 class="title">Nabízíme</h2>
@@ -19,7 +41,7 @@
             {% endfor %}
         </div>
     </section>
-    <section class="services">
+    <section class="services" id="services">
         <h2 class="title">Naše služby</h2>
         <div class="services-grid">
             {% for service in section.extra.service %}
@@ -34,34 +56,61 @@
     </section>
 
     <section class="projects">
-    <div class="projects__container">
-    <h2 class="title">Naše projekty</h2>
-    <div class="projects-grid">
-        {% for project in section.extra.projects %}
-            {{ component_project::render(
+        <div class="projects__container">
+            <h2 class="title">Naše projekty</h2>
+            <div class="projects-grid">
+                {% for project in section.extra.projects %}
+                {{ component_project::render(
                 image=project.image,
                 title=project.title,
                 desc=project.desc,
                 imageAlt=project.imageAlt
-            ) }}
-        {% endfor %}
-    </div>
-    </div>
-</section>
+                ) }}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 
-    <section class="contracts">
+    <section class="contracts" id="contracts">
         {% for contract in section.extra.contracts %}
-            {{ component_contract::render(
-                image=contract.image,
-                imageAlt=contract.imageAlt,
-                title=contract.title,
-                desc=contract.desc,
-                primary_label=contract.primary_label,
-                primary_href=contract.primary_href,
-                secondary_label=contract.secondary_label,
-                secondary_href=contract.secondary_href
-            ) }}
+        {{ component_contract::render(
+        image=contract.image,
+        imageAlt=contract.imageAlt,
+        title=contract.title,
+        desc=contract.desc,
+        primary_label=contract.primary_label,
+        primary_href=contract.primary_href,
+        secondary_label=contract.secondary_label,
+        secondary_href=contract.secondary_href
+        ) }}
         {% endfor %}
     </section>
+<div class="content">
+    <section class="about-us">
+        <div class="about-us__content">
+            <p class="about-us__subtitle">{{ section.extra.about_us.subtitle }}</p>
+            <p class="about-us__title">{{ section.extra.about_us.title }}</p>
+            <p class="about-us__desc">{{ section.extra.about_us.desc }}</p>
+            <p class="about-us__desc">{{ section.extra.about_us.desc2 }}</p>
+        </div>
+        <div class="about-us__image">
+            <img src="/images/HARDWARIO.svg" alt="HARDWARIO logo">
+        </div>
+    </section>
+
+    <section class="product">
+        <div class="product__content">
+            <p class="product__title">{{ section.extra.product.title }}</p>
+            <p class="product__desc">{{ section.extra.product.desc }}</p>
+            <div class="product__button">
+                {{ component_button::render(label=section.extra.product.button_label, href=section.extra.product.href, variant="primary") }}
+            </div>
+        </div>
+        <div class="product__image">
+            <img src="/images/product.jpg" alt="product image">
+        </div>
+    </section>
+    </div>
+
 </div>
 {% endblock content %}

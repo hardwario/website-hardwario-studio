@@ -197,4 +197,16 @@ secondary_href = "#"
 
 
 
+[extra.about_us]
+subtitle = "O NÁS"
+title = "Kdo jsme?"
+desc = "Za HARDWARIO Studio stojí česká firma HARDWARIO a.s., která se specializuje na bezdrátové technologie a LPWAN sítě, jako jsou NB-IoT, LTE-M, nebo LoRaWAN."
+desc2 = "HARDWARIO má bohaté zkušenosti s optimalizací spotřeby a dlouhodobou výdrží zařízení z baterií, a to i v náročných provozních podmínkách. Všechny výrobky si firma vyrábí sama nebo u ověřených českých partnerů."
+
+[extra.product]
+title = "Naše výrobky"
+desc = "Máte zájem o naše produkty? Podívejte se na HARDWARIO Store, kde najdete vše, co sami vyrábíme."
+button_label = "PŘEJÍT DO ESHOPU"
+href = "https://www.hardwario.store/cz/"
+
 +++
