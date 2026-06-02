@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Projects — card grid on a muted band
+   ========================================================================== */
+
+.projects { background: var(--surface-muted); }
+
+.projects__grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.project__card {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.project__card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.project__media { aspect-ratio: 4 / 3; overflow: hidden; }
+.project__image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s ease; }
+.project__card:hover .project__image { transform: scale(1.04); }
+
+.project__content { display: flex; flex-direction: column; gap: 10px; padding: 28px; }
+.project__tag { color: var(--red); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.project__title { font-size: 22px; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: var(--heading); }
+.project__desc { color: var(--text-soft); font-size: 15px; line-height: 24px; }
+
+@media (max-width: 720px) {
+  .projects__grid { gap: 24px; }
+  .project__content { padding: 24px; }
+}

@@ -1,0 +1,16 @@
+{% import "macros.html" as macros %}
+
+<section class="section section--tight product">
+  <div class="container">
+    <div class="product__inner" data-aos="fade-up">
+      <div class="product__content">
+        <h2 class="product__title">{{ d.product.title }}</h2>
+        <p class="product__desc">{{ d.product.desc }}</p>
+        {{ macros::button(label=d.product.button_label, href=d.product.href, variant="primary") }}
+      </div>
+      <div class="product__image">
+        <img src="{{ get_url(path='images/product.png') }}" alt="{{ d.product.title }}">
+      </div>
+    </div>
+  </div>
+</section>

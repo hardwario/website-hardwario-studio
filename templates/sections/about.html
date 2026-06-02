@@ -1,0 +1,17 @@
+{% import "macros.html" as macros %}
+
+<section class="section section--tight about-us" id="about-us">
+  <div class="container">
+    <div class="about-us__inner" data-aos="fade-up">
+      <div class="about-us__content">
+        <span class="kicker">{{ d.about_us.subtitle }}</span>
+        <h2 class="about-us__title">{{ d.about_us.title }}</h2>
+        <p class="about-us__desc">{{ d.about_us.desc }}</p>
+        <p class="about-us__desc">{{ d.about_us.desc2 }}</p>
+      </div>
+      <div class="about-us__image">
+        <img src="{{ get_url(path='images/HARDWARIO.svg') }}" alt="HARDWARIO">
+      </div>
+    </div>
+  </div>
+</section>

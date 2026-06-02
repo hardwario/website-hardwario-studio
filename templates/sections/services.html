@@ -1,0 +1,42 @@
+{% import "macros.html" as macros %}
+
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <h2 class="h2--big">{{ d.services_title }}</h2>
+    </div>
+    <div class="services__grid">
+      {% for service in d.service %}
+      <div class="split" data-service-card>
+        <div class="split__image-box" data-aos="fade-right">
+          <div class="split__slider">
+            <div class="split__slides" data-service-slides>
+              {% for slide in service.slides %}
+              <div class="split__slide{% if loop.first %} is-active{% endif %}" data-service-slide data-meta="{{ slide.meta }}">
+                <img src="{{ get_url(path='images/' ~ slide.image ~ '.jpg') }}" alt="{{ slide.imageAlt }} {{ loop.index }}" class="split__image">
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="split__content" data-aos="fade-left">
+          <h3 class="split__title">{{ service.title }}</h3>
+          <p class="split__meta" data-service-meta>{% if service.slides | length > 0 %}{{ service.slides[0].meta }}{% endif %}</p>
+          <p class="split__desc">{{ service.desc }}</p>
+          <ul class="split__list">
+            {% for item in service.list %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+          <div class="split__controls">
+            <button class="split__control" type="button" data-service-prev aria-label="{{ d.services_prev_aria }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="split__control" type="button" data-service-next aria-label="{{ d.services_next_aria }}">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Contact — copy + form
+   ========================================================================== */
+
+.contact__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; }
+
+.contact__copy { display: flex; flex-direction: column; align-items: flex-start; }
+.contact__title { margin-bottom: 24px; max-width: 502px; }
+.contact__desc { margin-bottom: 40px; max-width: 480px; }
+.contact__phone-label { font-size: 14px; color: var(--text-mute); margin-bottom: 8px; }
+.contact__phone {
+  display: block; font-size: 24px; font-weight: 700; letter-spacing: -.02em;
+  color: var(--red); margin-bottom: 32px; transition: opacity .15s ease;
+}
+.contact__phone:hover { opacity: .8; }
+
+/* Form */
+.contact__form { display: flex; flex-direction: column; gap: 20px; }
+.contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.contact__field { display: flex; flex-direction: column; gap: 6px; }
+.contact__label { font-size: 14px; font-weight: 500; letter-spacing: .02em; line-height: 1.6; color: var(--heading-ink); }
+.contact__label span { color: var(--red); }
+
+.contact__input {
+  width: 100%; padding: 14px 16px;
+  font-size: 16px; font-family: inherit; color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-bd); border-radius: 8px;
+  outline: none; appearance: none;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.contact__input::placeholder { color: var(--text-faint); }
+.contact__input:hover { border-color: var(--gray-6b); }
+.contact__input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 22%, transparent);
+}
+
+.contact__select-wrap { position: relative; }
+.contact__select-wrap .contact__input { padding-right: 44px; cursor: pointer; }
+.contact__select-arrow {
+  position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px; color: var(--gray-6b); pointer-events: none;
+}
+.contact__select:required:invalid { color: var(--text-faint); }
+.contact__select option { color: var(--text); background: var(--input-bg); }
+
+.contact__textarea { resize: none; min-height: 120px; }
+.contact__form .btn { align-self: flex-start; }
+
+@media (max-width: 900px) {
+  .contact__inner { grid-template-columns: 1fr; gap: 48px; }
+  .contact__desc { max-width: 100%; }
+}
+@media (max-width: 560px) {
+  .contact__row { grid-template-columns: 1fr; }
+}

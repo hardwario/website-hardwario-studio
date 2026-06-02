@@ -1,0 +1,27 @@
+/* ==========================================================================
+   Typography — headings, kickers, leads
+   ========================================================================== */
+
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.1; letter-spacing: -.02em; color: var(--heading); }
+
+.kicker {
+  display: block;
+  color: var(--red);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+.kicker--xs {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.h2--big { font-size: 40px; line-height: 1.1; font-weight: 700; color: var(--heading); letter-spacing: -.02em; }
+.h2--mid { font-size: 32px; line-height: 1.15; font-weight: 700; color: var(--heading-ink); letter-spacing: -.02em; }
+.h2--ink { color: var(--heading-ink); font-weight: 700; }
+
+.lead { font-size: 16px; line-height: 26px; color: var(--text-soft); font-weight: 400; }
+.lead--narrow { max-width: 640px; }

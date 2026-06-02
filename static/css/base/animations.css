@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Animate on scroll
+   ========================================================================== */
+
+[data-aos] {
+  opacity: 0;
+  transition: opacity .6s cubic-bezier(.2, .8, .2, 1), transform .6s cubic-bezier(.2, .8, .2, 1);
+  transition-delay: var(--aos-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-aos="fade-up"]    { transform: translateY(28px); }
+[data-aos="fade-down"]  { transform: translateY(-28px); }
+[data-aos="fade-left"]  { transform: translateX(28px); }
+[data-aos="fade-right"] { transform: translateX(-28px); }
+[data-aos="zoom-in"]    { transform: scale(.94); }
+[data-aos="fade"]       { transform: none; }
+
+[data-aos].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Stagger — children appear one after another */
+[data-aos-stagger] > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .6s cubic-bezier(.2, .8, .2, 1), transform .6s cubic-bezier(.2, .8, .2, 1);
+}
+[data-aos-stagger].is-visible > * { opacity: 1; transform: none; }
+[data-aos-stagger].is-visible > *:nth-child(1) { transition-delay: 0ms; }
+[data-aos-stagger].is-visible > *:nth-child(2) { transition-delay: 90ms; }
+[data-aos-stagger].is-visible > *:nth-child(3) { transition-delay: 180ms; }
+[data-aos-stagger].is-visible > *:nth-child(4) { transition-delay: 270ms; }
+[data-aos-stagger].is-visible > *:nth-child(5) { transition-delay: 360ms; }
+[data-aos-stagger].is-visible > *:nth-child(6) { transition-delay: 450ms; }
+[data-aos-stagger].is-visible > *:nth-child(7) { transition-delay: 540ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-aos],
+  [data-aos-stagger] > * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

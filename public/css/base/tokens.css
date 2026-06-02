@@ -1,0 +1,92 @@
+/* ==========================================================================
+   Design tokens — brand colours (theme-independent) + semantic colours
+   that switch between light and dark theme.
+   ========================================================================== */
+
+:root {
+  /* ---- Brand / accents ---- */
+  --red:        #e30427;
+  --red-80:     rgba(227, 4, 39, .8);
+  --red-soft:   rgba(227, 4, 39, .2);
+  --blue:       #06367a;
+  --blue-dark:  #052d66;
+
+  /* Always-dark / neutral surfaces */
+  --dark-1a:    #1a1a22;
+  --gray-80:    #808080;
+  --gray-f2:    #f2f2f2;
+  --gray-6b:    #6b6a6a;
+
+  /* ---- Semantic — LIGHT theme ---- */
+  --bg:            #ffffff;
+  --surface:       #ffffff;
+  --surface-alt:   #f1faff;
+  --surface-soft:  #f2f2f2;
+  --surface-muted: #f5f5f5;
+  --heading:       #000000;
+  --heading-ink:   #252532;
+  --text:          #252532;
+  --text-soft:     rgba(37, 37, 50, .9);
+  --text-mute:     rgba(37, 37, 50, .7);
+  --text-faint:    rgba(37, 37, 50, .5);
+  --muted:         #4d4d4d;
+  --border:        #e6e6e6;
+  --border-soft:   #f2f2f2;
+  --border-hair:   #f3f4f6;
+  --input-bg:      #ffffff;
+  --input-bd:      #d1d5db;
+  --header-bg:     rgba(255, 255, 255, .92);
+  --footer-bg:     #252532;
+  --footer-text:   #d1d5db;
+  --logo-2:        #6b6a6a;
+  --shadow-sm:     0 6px 18px rgba(16, 16, 30, .06);
+  --shadow-md:     0 18px 40px rgba(16, 16, 30, .10);
+
+  /* Layout */
+  --container: 1640px;
+  --radius: 16px;
+}
+
+/* ---- Semantic — DARK theme ---- */
+[data-theme="dark"] {
+  /* Brighter accent red reads better on dark surfaces (logo keeps #e30427) */
+  --red:           #f43f5e;
+  --red-80:        rgba(244, 63, 94, .8);
+  --red-soft:      rgba(244, 63, 94, .2);
+
+  --bg:            #0f0f14;
+  --surface:       #1a1a22;
+  --surface-alt:   #15151d;
+  --surface-soft:  #1a1a22;
+  --surface-muted: #15151d;
+  --heading:       #ffffff;
+  --heading-ink:   #f3f3f6;
+  --text:          #e7e7ee;
+  --text-soft:     rgba(231, 231, 238, .9);
+  --text-mute:     rgba(231, 231, 238, .64);
+  --text-faint:    rgba(231, 231, 238, .45);
+  --muted:         #a9a9b6;
+  --border:        #2b2b36;
+  --border-soft:   #24242e;
+  --border-hair:   #20202a;
+  --input-bg:      #1a1a22;
+  --input-bd:      #34343f;
+  --header-bg:     rgba(15, 15, 20, .9);
+  --footer-bg:     #14141c;
+  --footer-text:   #b9b9c6;
+  --logo-2:        #ffffff;
+  --shadow-sm:     0 6px 18px rgba(0, 0, 0, .45);
+  --shadow-md:     0 18px 40px rgba(0, 0, 0, .55);
+}
+
+body,
+.site-header,
+.project__card,
+.contract,
+.product,
+.about-us,
+.tcard,
+.contact__input,
+.contact__select {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}

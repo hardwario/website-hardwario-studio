@@ -1,0 +1,35 @@
+/* ==========================================================================
+   About us — "Kdo jsme" card
+   ========================================================================== */
+
+.about-us__inner {
+  background: var(--surface-soft);
+  border-radius: var(--radius);
+  padding: 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 48px;
+}
+.about-us__content { max-width: 860px; display: flex; flex-direction: column; }
+.about-us__title {
+  font-size: 32px; font-weight: 700; line-height: 1.15; letter-spacing: -.02em;
+  color: var(--heading-ink);
+  margin: 8px 0 32px;
+}
+.about-us__desc { color: var(--text-soft); font-size: 16px; line-height: 28px; }
+.about-us__desc + .about-us__desc { margin-top: 16px; }
+
+.about-us__image {
+  flex: none;
+  background: var(--surface);
+  border-radius: 32px;
+  padding: 32px 52px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+.about-us__image img { height: 96px; width: auto; }
+
+@media (max-width: 720px) {
+  .about-us__inner { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px 24px; }
+  .about-us__content { max-width: 100%; }
+  .about-us__title { font-size: 24px; margin-bottom: 24px; }
+  .about-us__image { width: 100%; }
+}

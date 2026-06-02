@@ -1,0 +1,72 @@
+/* ==========================================================================
+   References — nekonečný marquee slider „Co říkají naši zákazníci"
+   ========================================================================== */
+
+.testimonials { overflow: hidden; background: var(--surface-alt); }
+
+.marquee { margin-top: 56px; }
+.marquee__viewport { overflow: hidden; }
+.marquee__track { display: flex; gap: 48px; width: max-content; }
+
+.marquee__controls { display: none; justify-content: center; gap: 12px; margin-top: 32px; }
+
+/* Mobile: native scroll-snap carousel — a card is always centred */
+@media (max-width: 720px) {
+  .marquee { margin-top: 40px; }
+  .marquee__controls { display: flex; }
+  .marquee__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .marquee__viewport::-webkit-scrollbar { display: none; }
+  .marquee__track {
+    transform: none !important;
+    gap: 16px;
+    padding-inline: 10vw;
+  }
+  .tcard { flex: 0 0 80vw; max-width: 80vw; scroll-snap-align: center; }
+  .tcard[aria-hidden="true"] { display: none; }
+}
+
+/* Karta reference */
+.tcard {
+  flex: 0 0 440px;
+  max-width: 80vw;
+  display: flex; flex-direction: column; gap: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border-hair);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-sm);
+}
+.tcard__mark { width: 36px; height: 36px; flex: none; color: var(--red); }
+.tcard blockquote { margin: 0; font-style: italic; font-size: 16px; line-height: 26px; color: var(--text-soft); }
+.tcard__person { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+.tcard__avatar {
+  width: 40px; height: 40px; flex: none; border-radius: 50%;
+  background: var(--heading-ink); color: #fff;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 16px;
+}
+[data-theme="dark"] .tcard__avatar { color: var(--dark-1a); }
+.tcard__name { display: flex; flex-direction: column; }
+.tcard__name strong { font-size: 16px; font-weight: 700; color: var(--heading); }
+.tcard__name span { font-size: 14px; color: var(--text-mute); }
+
+/* Marquee control buttons (mobile) */
+.marquee__btn {
+  width: 52px; height: 52px; flex: none;
+  border: 1px solid var(--border); border-radius: 9999px;
+  background: var(--surface); color: var(--heading);
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+.marquee__btn:hover { border-color: var(--red); color: var(--red); }
+.marquee__btn svg { width: 20px; height: 20px; display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__viewport { overflow-x: auto; }
+}

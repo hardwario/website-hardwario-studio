@@ -1,0 +1,51 @@
+{% import "macros.html" as macros %}
+
+<section class="section contact" id="form">
+  <div class="container contact__inner">
+    <div class="contact__copy" data-aos="fade-right">
+      <h2 class="h2--big contact__title">{{ d.contact_title }}</h2>
+      <p class="lead contact__desc">{{ d.contact_text }}</p>
+      <p class="contact__phone-label">{{ d.contact_phone_note }}</p>
+      <a href="{{ config.extra.phone_href }}" class="contact__phone">{{ config.extra.phone }}</a>
+      {{ macros::button(label=d.contact_cta, href=config.extra.email_href, variant="primary") }}
+    </div>
+
+    <form class="contact__form" method="post" action="#" onsubmit="return false;" data-aos="fade-left">
+      <div class="contact__row">
+        <div class="contact__field">
+          <label class="contact__label" for="c-first">{{ trans(key='form_first_name', lang=lang) }} <span aria-hidden="true">*</span></label>
+          <input class="contact__input" type="text" id="c-first" name="first_name" placeholder="{{ trans(key='form_first_name_ph', lang=lang) }}" required>
+        </div>
+        <div class="contact__field">
+          <label class="contact__label" for="c-last">{{ trans(key='form_last_name', lang=lang) }} <span aria-hidden="true">*</span></label>
+          <input class="contact__input" type="text" id="c-last" name="last_name" placeholder="{{ trans(key='form_last_name_ph', lang=lang) }}" required>
+        </div>
+      </div>
+      <div class="contact__row">
+        <div class="contact__field">
+          <label class="contact__label" for="c-email">{{ trans(key='form_email', lang=lang) }} <span aria-hidden="true">*</span></label>
+          <input class="contact__input" type="email" id="c-email" name="email" placeholder="{{ trans(key='form_email_ph', lang=lang) }}" required>
+        </div>
+        <div class="contact__field">
+          <label class="contact__label" for="c-service">{{ trans(key='form_service', lang=lang) }} <span aria-hidden="true">*</span></label>
+          <div class="contact__select-wrap">
+            <select class="contact__input contact__select" id="c-service" name="service" required>
+              <option value="" disabled selected></option>
+              <option>{{ trans(key='svc_large_3d', lang=lang) }}</option>
+              <option>{{ trans(key='svc_uv', lang=lang) }}</option>
+              <option>{{ trans(key='svc_custom_3d', lang=lang) }}</option>
+              <option>{{ trans(key='svc_durability', lang=lang) }}</option>
+              <option>{{ trans(key='svc_cad', lang=lang) }}</option>
+            </select>
+            <svg class="contact__select-arrow" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="contact__field">
+        <label class="contact__label" for="c-msg">{{ trans(key='form_message', lang=lang) }} <span aria-hidden="true">*</span></label>
+        <textarea class="contact__input contact__textarea" id="c-msg" name="message" required></textarea>
+      </div>
+      <button class="btn btn--primary" type="submit">{{ trans(key='form_submit', lang=lang) }}</button>
+    </form>
+  </div>
+</section>

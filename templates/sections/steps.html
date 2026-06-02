@@ -1,0 +1,18 @@
+{% import "macros.html" as macros %}
+
+<section class="section steps" id="ukazky">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <h2 class="h2--big">{{ d.steps_title }}</h2>
+    </div>
+    <div class="steps__grid" data-aos-stagger>
+      {% for s in d.step %}
+      <div class="step">
+        <div class="step__number">{{ s.number }}</div>
+        <h3 class="step__title">{{ s.title }}</h3>
+        <p class="step__desc">{{ s.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

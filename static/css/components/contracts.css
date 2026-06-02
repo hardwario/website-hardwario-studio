@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Contracts — "Zakázky" CTA-row cards
+   ========================================================================== */
+
+.contracts__list { display: flex; flex-direction: column; gap: 32px; }
+
+.contract {
+  display: flex; align-items: center; gap: 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 44px 48px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.contract:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: color-mix(in srgb, var(--red) 45%, var(--border));
+}
+
+.contract__image {
+  flex: none;
+  padding: 26px; border-radius: var(--radius);
+  background: var(--surface-alt);
+  width: 116px; height: 116px;
+  object-fit: contain;
+}
+.contract__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.contract__title { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: var(--heading-ink); }
+.contract__desc { color: var(--text-soft); font-size: 16px; line-height: 28px; max-width: 900px; }
+
+/* CTA buttons sit on the right */
+.contract__buttons {
+  flex: none;
+  display: flex; flex-direction: column; gap: 12px;
+  width: 220px;
+}
+.contract__buttons .btn { width: 100%; }
+
+@media (max-width: 1080px) {
+  .contract { gap: 32px; padding: 36px 32px; }
+  .contract__buttons { width: 200px; }
+}
+
+@media (max-width: 900px) {
+  .contract { flex-direction: column; align-items: flex-start; gap: 24px; padding: 28px 24px; }
+  .contract__image { width: 88px; height: 88px; padding: 18px; }
+  .contract__title { font-size: 24px; }
+  .contract__text { max-width: 100%; }
+  .contract__buttons { flex-direction: row; flex-wrap: wrap; margin-left: 0; width: auto; }
+  .contract__buttons .btn { width: auto; }
+}

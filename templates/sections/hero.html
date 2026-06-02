@@ -1,0 +1,20 @@
+{% import "macros.html" as macros %}
+
+<section class="hero" id="home">
+  <div class="hero__media" aria-hidden="true">
+    <iframe
+      class="hero__video"
+      src="https://player.vimeo.com/video/1115260939?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&controls=0"
+      title="{{ d.hero_title }}"
+      allow="autoplay; fullscreen; picture-in-picture"
+      allowfullscreen></iframe>
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content">
+    <h1 class="hero__title">{{ d.hero_title }}</h1>
+    <div class="hero__buttons">
+      {{ macros::button(label=d.hero_cta_primary, href="#form", variant="primary") }}
+      {{ macros::button(label=d.hero_cta_secondary, href="#services", variant="ghost", icon="arrow-right") }}
+    </div>
+  </div>
+</section>

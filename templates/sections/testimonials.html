@@ -1,0 +1,45 @@
+{% import "macros.html" as macros %}
+
+<section class="section testimonials" id="reference">
+  <div class="container">
+    <div class="section-head section-head--center" data-aos="fade-up">
+      <span class="kicker">{{ d.testimonials_kicker }}</span>
+      <h2 class="h2--big">{{ d.testimonials_title }}</h2>
+    </div>
+  </div>
+
+  <div class="marquee" data-marquee>
+    <div class="marquee__viewport">
+      <div class="marquee__track">
+        {% for t in d.testimonials %}
+        <figure class="tcard">
+          <svg class="tcard__mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 4 7 4 10.5V20h8v-8H7.5C7.5 9 8 7.5 10 7L9.5 4Z M19.5 4C16 4 14 7 14 10.5V20h8v-8h-4.5c0-3 .5-4.5 2.5-5L19.5 4Z"/></svg>
+          <blockquote>{{ t.quote }}</blockquote>
+          <figcaption class="tcard__person">
+            <span class="tcard__avatar" aria-hidden="true">{{ t.name | truncate(length=1, end="") }}</span>
+            <span class="tcard__name"><strong>{{ t.name }}</strong><span>{{ t.role }}</span></span>
+          </figcaption>
+        </figure>
+        {% endfor %}
+        {% for t in d.testimonials %}
+        <figure class="tcard" aria-hidden="true">
+          <svg class="tcard__mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.5 4C6 4 4 7 4 10.5V20h8v-8H7.5C7.5 9 8 7.5 10 7L9.5 4Z M19.5 4C16 4 14 7 14 10.5V20h8v-8h-4.5c0-3 .5-4.5 2.5-5L19.5 4Z"/></svg>
+          <blockquote>{{ t.quote }}</blockquote>
+          <figcaption class="tcard__person">
+            <span class="tcard__avatar" aria-hidden="true">{{ t.name | truncate(length=1, end="") }}</span>
+            <span class="tcard__name"><strong>{{ t.name }}</strong><span>{{ t.role }}</span></span>
+          </figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="marquee__controls">
+      <button class="marquee__btn" type="button" data-marquee-prev aria-label="{{ d.testimonials_prev_aria }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="marquee__btn" type="button" data-marquee-next aria-label="{{ d.testimonials_next_aria }}">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>

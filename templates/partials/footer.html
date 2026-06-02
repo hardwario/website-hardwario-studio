@@ -1,0 +1,73 @@
+{% import "macros.html" as macros %}
+
+<footer class="site-footer">
+  <div class="site-footer__social">
+    <div class="container socials" aria-label="{{ trans(key='social_aria', lang=lang) }}">
+      <a href="https://www.linkedin.com/company/13187032" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">{{ macros::social(name="linkedin") }}</a>
+      <a href="https://twitter.com/hardwario_en" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">{{ macros::social(name="x") }}</a>
+      <a href="https://www.instagram.com/hardwario/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">{{ macros::social(name="instagram") }}</a>
+      <a href="https://www.youtube.com/c/hardwario" target="_blank" rel="noopener noreferrer" aria-label="YouTube">{{ macros::social(name="youtube") }}</a>
+      <a href="https://github.com/hardwario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">{{ macros::social(name="github") }}</a>
+    </div>
+  </div>
+
+  <div class="container footer-grid">
+    <div class="footer-col footer-col--logo">
+      <a href="#top" class="footer-logo" aria-label="{{ trans(key='brand_aria', lang=lang) }}">
+        <img class="footer-logo__img" src="{{ get_url(path='images/HARDWARIO.svg') }}" alt="HARDWARIO Studio">
+      </a>
+    </div>
+
+    <div class="footer-col">
+      <h4>{{ trans(key='f_branches', lang=lang) }}</h4>
+      <div class="footer-branches">
+        <div><p class="footer-strong">HARDWARIO a.s.</p><a href="https://maps.app.goo.gl/uwNsT2fuUmTaoXc48" target="_blank" rel="noopener noreferrer" class="footer-ext">{{ trans(key='country_cz', lang=lang) }} {{ macros::ext() }}</a></div>
+        <div><p class="footer-strong">HARDWARIO LLC</p><a href="https://maps.app.goo.gl/YyUsBivFKc6yYVTr8" target="_blank" rel="noopener noreferrer" class="footer-ext">{{ trans(key='country_us', lang=lang) }} {{ macros::ext() }}</a></div>
+        <div><p class="footer-strong">HARDWARIO LTD</p><a href="https://maps.app.goo.gl/BPVS4T61Ao1h5HVJ9" target="_blank" rel="noopener noreferrer" class="footer-ext">{{ trans(key='country_uk', lang=lang) }} {{ macros::ext() }}</a></div>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>{{ trans(key='f_navigation', lang=lang) }}</h4>
+      <ul>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}products/">{{ trans(key='f_products', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}solutions/">{{ trans(key='f_solutions', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}services/">{{ trans(key='f_services', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}customers/">{{ trans(key='f_customers', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}resources/">{{ trans(key='f_resources', lang=lang) }}</a></li>
+        <li><a href="https://www.hardwario.store/" target="_blank" rel="noopener noreferrer" class="footer-ext">{{ trans(key='f_store', lang=lang) }} {{ macros::ext() }}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>{{ trans(key='f_connect', lang=lang) }}</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/company/13187032" target="_blank" rel="noopener noreferrer" class="footer-ext">LinkedIn {{ macros::ext() }}</a></li>
+        <li><a href="https://twitter.com/hardwario_en" target="_blank" rel="noopener noreferrer" class="footer-ext">Twitter/X {{ macros::ext() }}</a></li>
+        <li><a href="https://www.instagram.com/hardwario/" target="_blank" rel="noopener noreferrer" class="footer-ext">Instagram {{ macros::ext() }}</a></li>
+        <li><a href="https://www.youtube.com/c/hardwario" target="_blank" rel="noopener noreferrer" class="footer-ext">YouTube {{ macros::ext() }}</a></li>
+        <li><a href="https://github.com/hardwario" target="_blank" rel="noopener noreferrer" class="footer-ext">GitHub {{ macros::ext() }}</a></li>
+        <li><a href="https://forum.hardwario.com" target="_blank" rel="noopener noreferrer" class="footer-ext">Forum {{ macros::ext() }}</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>{{ trans(key='f_company', lang=lang) }}</h4>
+      <ul>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}support/">{{ trans(key='f_support', lang=lang) }}</a></li>
+        <li><a href="#form">{{ trans(key='nav_contact', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}company/">{{ trans(key='f_about', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}partners/">{{ trans(key='f_partners', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}investors/">{{ trans(key='f_investors', lang=lang) }}</a></li>
+        <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}newsroom/">{{ trans(key='f_newsroom', lang=lang) }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="container">
+      <p>Copyright © {{ config.extra.year }} HARDWARIO a.s.</p>
+      <p>{{ trans(key='f_tagline', lang=lang) }}</p>
+    </div>
+  </div>
+</footer>

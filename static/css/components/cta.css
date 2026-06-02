@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Closing CTA — "Připraveni začít?"
+   ========================================================================== */
+
+.cta { background: var(--bg); text-align: center; }
+.cta__inner { max-width: 720px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.cta__title { margin-bottom: 20px; }
+.cta__text { max-width: 560px; margin-bottom: 40px; }
+.cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.cta__phone-note { margin-top: 32px; font-size: 14px; color: var(--text-mute); }
+.cta__phone-note a { color: var(--red); font-weight: 600; transition: opacity .15s ease; }
+.cta__phone-note a:hover { opacity: .8; }

@@ -1,115 +1,18 @@
 {% extends "base.html" %}
-{% import "components/button.html" as component_button %}
-{% import "components/contract.html" as component_contract %}
-{% import "components/step.html" as component_step %}
-{% import "components/service.html" as component_split %}
-{% import "components/project.html" as component_project %}
+{% import "macros.html" as macros %}
 
 {% block content %}
-<section class="hero" id="home">
-    <div class="hero__media" aria-hidden="true">
-        <iframe
-            class="hero__video"
-            src="https://player.vimeo.com/video/1115260939?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&controls=0"
-            title="Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-        <div class="hero__overlay"></div>
-    </div>
-    <div class="hero__content">
-        <h1 class="hero__title">Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj</h1>
-        <div class="hero__buttons">
-            {{ component_button::render(label="DOMLUVIT SCHŮZKU", href="#zakazky", variant="primary") }}
-            {{ component_button::render(label="NAŠE SLUŽBY", href="#services", variant="ghost", icon="arrow-right") }}
-        </div>
-        <div class="hero__mobile-visual">
-            <img class="hero__mobile-image" src="/images/3D-print-1.jpg" alt="Zakázkový 3D tisk">
-        </div>
-    </div>
-</section>
-<div class="page">
-    <section class="steps" id="ukazky">
-        <h2 class="title">Nabízíme</h2>
-        <div class="steps-grid">
-            {% for step in section.extra.step %}
-            {{ component_step::render(
-            number=step.number,
-            title=step.title,
-            desc=step.desc
-            ) }}
-            {% endfor %}
-        </div>
-    </section>
-    <section class="services" id="services">
-        <h2 class="title">Naše služby</h2>
-        <div class="services-grid">
-            {% for service in section.extra.service %}
-            {{ component_split::render(
-            title=service.title,
-            description=service.desc,
-            list=service.list,
-            slides=service.slides
-            ) }}
-            {% endfor %}
-        </div>
-    </section>
+{% set d = section.extra %}
 
-    <section class="projects" id="projekty">
-        <div class="projects__container">
-            <h2 class="title">Naše projekty</h2>
-            <div class="projects-grid">
-                {% for project in section.extra.projects %}
-                {{ component_project::render(
-                image=project.image,
-                title=project.title,
-                desc=project.desc,
-                imageAlt=project.imageAlt
-                ) }}
-                {% endfor %}
-            </div>
-        </div>
-    </section>
+{% include "sections/hero.html" %}
+{% include "sections/steps.html" %}
+{% include "sections/services.html" %}
+{% include "sections/projects.html" %}
+{% include "sections/testimonials.html" %}
+{% include "sections/contracts.html" %}
+{% include "sections/contact.html" %}
+{% include "sections/about.html" %}
+{% include "sections/product.html" %}
+{% include "sections/cta.html" %}
 
-    <section class="contracts" id="zakazky">
-        {% for contract in section.extra.contracts %}
-        {{ component_contract::render(
-        image=contract.image,
-        imageAlt=contract.imageAlt,
-        title=contract.title,
-        desc=contract.desc,
-        primary_label=contract.primary_label,
-        primary_href=contract.primary_href,
-        secondary_label=contract.secondary_label,
-        secondary_href=contract.secondary_href
-        ) }}
-        {% endfor %}
-    </section>
-    {% include "components/form.html" %}
-<div class="content">
-    <section class="about-us" id="about-us">
-        <div class="about-us__content">
-            <p class="about-us__subtitle">{{ section.extra.about_us.subtitle }}</p>
-            <p class="about-us__title">{{ section.extra.about_us.title }}</p>
-            <p class="about-us__desc">{{ section.extra.about_us.desc }}</p>
-            <p class="about-us__desc">{{ section.extra.about_us.desc2 }}</p>
-        </div>
-        <div class="about-us__image">
-            <img src="/images/HARDWARIO.svg" alt="HARDWARIO logo">
-        </div>
-    </section>
-
-    <section class="product">
-        <div class="product__content">
-            <p class="product__title">{{ section.extra.product.title }}</p>
-            <p class="product__desc">{{ section.extra.product.desc }}</p>
-            {{ component_button::render(label=section.extra.product.button_label, href=section.extra.product.href, variant="primary") }}
-        </div>
-        <div class="product__image">
-            <img src="/images/product.png" alt="product image">
-        </div>
-    </section>
-    </div>
-
-</div>
 {% endblock content %}

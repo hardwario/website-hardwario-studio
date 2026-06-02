@@ -1,0 +1,15 @@
+{% import "macros.html" as macros %}
+
+<section class="section--lg cta">
+  <div class="container">
+    <div class="cta__inner" data-aos="fade-up">
+      <h2 class="h2--big cta__title">{{ d.cta_title }}</h2>
+      <p class="lead cta__text">{{ d.cta_text }}</p>
+      <div class="cta__actions">
+        {{ macros::button(label=d.cta_primary, href=config.extra.meeting_href, variant="primary", icon="arrow-right", classes="btn--lg", attrs='target="_blank" rel="noopener noreferrer"') }}
+        {{ macros::button(label=d.cta_secondary, href="#form", variant="outline", classes="btn--lg") }}
+      </div>
+      <p class="cta__phone-note">{{ d.cta_phone_note }} <a href="{{ config.extra.phone_href }}">{{ config.extra.phone }}</a></p>
+    </div>
+  </div>
+</section>

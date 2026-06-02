@@ -1,0 +1,51 @@
+/* ==========================================================================
+   UI atoms — buttons, arrow links
+   ========================================================================== */
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn__icon { display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.btn__icon svg { width: 18px; height: 18px; display: block; }
+
+.btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
+.btn--lg { height: 56px; padding: 0 36px; font-size: 16px; }
+.btn--block { width: 100%; }
+
+.btn--primary { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn--primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+
+.btn--outline { background: transparent; border-color: var(--text); color: var(--text); }
+.btn--outline:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* Translucent ghost — used over the hero video / dark imagery */
+.btn--ghost {
+  background: rgba(255, 255, 255, .14);
+  border-color: rgba(255, 255, 255, .3);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+.btn--ghost:hover { background: rgba(255, 255, 255, .22); color: #fff; }
+
+/* ---- Arrow link ---- */
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: var(--red); font-weight: 600; font-size: 16px;
+  letter-spacing: -.01em;
+  transition: gap .15s ease;
+}
+.link-arrow .arrow { width: 7px; height: 12px; transition: transform .15s ease; }
+.link-arrow:hover { gap: 10px; }

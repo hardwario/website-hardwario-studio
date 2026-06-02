@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Product — "Naše výrobky" bordered card
+   ========================================================================== */
+
+.product__inner {
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 64px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 48px;
+}
+.product__content { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.product__title { font-size: 32px; font-weight: 700; line-height: 1.15; letter-spacing: -.02em; color: var(--heading-ink); }
+.product__desc { color: var(--text-soft); font-size: 16px; line-height: 28px; max-width: 676px; }
+.product__image { flex: none; display: flex; justify-content: center; }
+.product__image img { display: block; max-width: 100%; height: auto; }
+
+@media (max-width: 720px) {
+  .product__inner { flex-direction: column; align-items: flex-start; gap: 24px; padding: 32px 24px; }
+  .product__content { width: 100%; }
+  .product__title { font-size: 24px; }
+  .product__desc { max-width: 100%; }
+  .product__image { width: 100%; }
+}

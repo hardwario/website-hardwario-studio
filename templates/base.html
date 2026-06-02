@@ -1,21 +1,47 @@
+{% import "macros.html" as macros %}
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="{{ lang }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ config.title }}</title>
-    <link rel="stylesheet" href="/styles/index.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+  <meta name="description" content="{% if section %}{{ section.description | default(value=config.description) }}{% elif page %}{{ page.description | default(value=config.description) }}{% else %}{{ config.description }}{% endif %}">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  {%- set css_files = [
+    "base/tokens.css", "base/reset.css", "base/typography.css", "base/layout.css", "base/animations.css",
+    "components/ui.css", "components/header.css", "components/footer.css",
+    "components/hero.css", "components/steps.css", "components/services.css", "components/projects.css",
+    "components/testimonials.css", "components/contracts.css", "components/contact.css",
+    "components/about.css", "components/product.css", "components/cta.css",
+    "base/responsive.css"
+  ] -%}
+  {% for f in css_files %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
+  {% endfor %}
+  <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg') }}" type="image/svg+xml">
 </head>
 <body>
-    {% include "components/header.html" %}
-    <main>
-        {% block content %}{% endblock content %}
-    </main>
-    <script src="/scripts/services-carousel.js" defer></script>
-    {% include "components/footer.html" %}
+
+  {% include "partials/header.html" %}
+
+  <main>
+    {% block content %}{% endblock content %}
+  </main>
+
+  {% include "partials/footer.html" %}
+
+  <script src="{{ get_url(path='js/main.js', cachebust=true) }}" defer></script>
 </body>
 </html>

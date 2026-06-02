@@ -1,0 +1,23 @@
+{% import "macros.html" as macros %}
+
+<section class="section projects" id="projekty">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <h2 class="h2--big">{{ d.projects_title }}</h2>
+    </div>
+    <div class="projects__grid" data-aos-stagger>
+      {% for p in d.projects %}
+      <article class="project__card">
+        <div class="project__media">
+          <img class="project__image" src="{{ get_url(path='images/' ~ p.image ~ '.jpg') }}" alt="{{ p.imageAlt }}">
+        </div>
+        <div class="project__content">
+          {% if p.tag %}<p class="project__tag">{{ p.tag }}</p>{% endif %}
+          <h3 class="project__title">{{ p.title }}</h3>
+          <p class="project__desc">{{ p.desc }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

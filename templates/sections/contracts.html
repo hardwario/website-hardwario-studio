@@ -1,0 +1,24 @@
+{% import "macros.html" as macros %}
+
+<section class="section contracts" id="zakazky">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <h2 class="h2--big">{{ d.contracts_title }}</h2>
+    </div>
+    <div class="contracts__list">
+      {% for c in d.contracts %}
+      <article class="contract" data-aos="fade-up">
+        <img class="contract__image" src="{{ get_url(path='images/' ~ c.image) }}" alt="{{ c.imageAlt }}">
+        <div class="contract__text">
+          <h3 class="contract__title">{{ c.title }}</h3>
+          <p class="contract__desc">{{ c.desc }}</p>
+        </div>
+        <div class="contract__buttons">
+          {{ macros::button(label=c.primary_label, href=c.primary_href, variant="primary") }}
+          {{ macros::button(label=c.secondary_label, href=c.secondary_href, variant="outline", icon="arrow-right") }}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
