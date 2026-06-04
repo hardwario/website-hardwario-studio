@@ -33,6 +33,7 @@
   text-align: center; gap: 32px;
   padding: 40px 0;
 }
+.hero__heading { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 .hero__title {
   font-size: clamp(32px, 4.6vw, 64px);
   line-height: 1.04;
@@ -40,13 +41,20 @@
   font-weight: 700;
   color: #fff;
 }
+.hero__subtitle {
+  max-width: 760px;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, .88);
+}
 .hero__buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 .hero__mobile-visual,
 .hero__mobile-image { display: none; }
 
 /* Section anchors clear the sticky header */
-.hero, .steps, .services, .projects, .testimonials,
-.contracts, .contact, .about-us, .product { scroll-margin-top: 90px; }
+.hero, .steps, .services, .audience, .process, .projects,
+.testimonials, .contracts, .faq, .contact, .about-us, .product { scroll-margin-top: 90px; }
 
 @media (max-width: 1445px) {
   .hero__video { min-width: 200%; min-height: 200%; transform: translate(-50%, -50%) scale(1.2); }
@@ -66,7 +74,9 @@
     width: 100%; gap: 60px; padding: 0;
     align-items: flex-start; text-align: left; max-width: none; margin-top: auto;
   }
+  .hero__heading { align-items: flex-start; gap: 16px; width: 100%; }
   .hero__title { font-size: clamp(24px, 6.8vw, 38px); line-height: 1.1; text-align: left; }
+  .hero__subtitle { font-size: 16px; text-align: left; color: rgba(255, 255, 255, .9); }
   .hero__buttons { width: 100%; flex-direction: column; align-items: flex-start; gap: 24px; }
   .hero__buttons .btn { display: inline-flex; }
   .hero .btn--ghost { backdrop-filter: none; }

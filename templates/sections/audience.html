@@ -1,0 +1,20 @@
+{% import "macros.html" as macros %}
+
+<section class="section audience" id="pro-koho">
+  <div class="container">
+    <div class="section-head section-head--center" data-aos="fade-up">
+      <span class="kicker kicker--xs">{{ d.audience_kicker }}</span>
+      <h2 class="h2--mid">{{ d.audience_title }}</h2>
+      {% if d.audience_lead %}<p class="lead">{{ d.audience_lead }}</p>{% endif %}
+    </div>
+    <div class="audience__grid" data-aos-stagger>
+      {% for a in d.audience %}
+      <div class="audience__item">
+        <div class="audience__icon">{{ macros::audience_icon(name=a.icon) }}</div>
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

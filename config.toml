@@ -18,9 +18,11 @@ description = "Custom 3D printing, UV printing, testing, manufacturing and devel
 
 [translations]
 nav_services = "Služby"
+nav_process = "Proces"
 nav_projects = "Projekty"
 nav_contracts = "Zakázky"
 nav_references = "Reference"
+nav_faq = "FAQ"
 nav_about = "O nás"
 nav_contact = "Kontakt"
 cta = "Kontakt"
@@ -69,9 +71,11 @@ svc_cad = "CAD modeling"
 
 [languages.en.translations]
 nav_services = "Services"
+nav_process = "Process"
 nav_projects = "Projects"
 nav_contracts = "Contracts"
 nav_references = "References"
+nav_faq = "FAQ"
 nav_about = "About us"
 nav_contact = "Contact"
 cta = "Contact"

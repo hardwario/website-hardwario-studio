@@ -1,0 +1,27 @@
+{% import "macros.html" as macros %}
+
+<section class="section process" id="proces">
+  <div class="container process__inner">
+    <div class="process__copy" data-aos="fade-right">
+      <div class="process__sticky">
+        <div class="section__head">
+        <span class="kicker">{{ d.process_kicker }}</span>
+        <h2 class="h2--big">{{ d.process_title }}</h2>
+        </div>
+        {% if d.process_lead %}<p class="lead">{{ d.process_lead }}</p>{% endif %}
+      </div>
+    </div>
+    <ol class="process__list">
+      {% for p in d.process %}
+      <li class="process__step{% if loop.first %} process__step--active{% endif %}" data-process-step data-index="{{ loop.index0 }}">
+        <span class="process__bar"></span>
+        <div class="process__body">
+          <span class="process__num">{{ p.number }}</span>
+          <h3>{{ p.title }}</h3>
+          <p>{{ p.desc }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

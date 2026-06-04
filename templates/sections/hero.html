@@ -11,7 +11,10 @@
     <div class="hero__overlay"></div>
   </div>
   <div class="hero__content">
-    <h1 class="hero__title">{{ d.hero_title }}</h1>
+    <div class="hero__heading">
+      <h1 class="hero__title">{{ d.hero_title }}</h1>
+      {% if d.hero_subtitle %}<p class="hero__subtitle">{{ d.hero_subtitle }}</p>{% endif %}
+    </div>
     <div class="hero__buttons">
       {{ macros::button(label=d.hero_cta_primary, href="#form", variant="primary") }}
       {{ macros::button(label=d.hero_cta_secondary, href="#services", variant="ghost", icon="arrow-right") }}

@@ -7,10 +7,11 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.1; letter-spacing: -.02em; col
 .kicker {
   display: block;
   color: var(--red);
-  font-size: 24px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.6;
-  letter-spacing: 0;
+  letter-spacing: .18em;
+  text-transform: uppercase;
 }
 .kicker--xs {
   font-size: 12px;
@@ -25,3 +26,9 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.1; letter-spacing: -.02em; col
 
 .lead { font-size: 16px; line-height: 26px; color: var(--text-soft); font-weight: 400; }
 .lead--narrow { max-width: 640px; }
+
+.section__head{
+  display: flex;
+  gap: .5rem;
+  flex-direction: column;
+}

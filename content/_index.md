@@ -5,7 +5,7 @@ description = "Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj."
 
 [extra]
 # ---- Hero ----
-hero_title = "Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj"
+hero_title = "Zakázkový 3D tisk, UV potisk, testování, výroba a vývoj."
 hero_cta_primary = "Domluvit schůzku"
 hero_cta_secondary = "Naše služby"
 
@@ -18,6 +18,7 @@ projects_title = "Naše projekty"
 contracts_title = "Zakázky"
 
 # ---- Kontakt ----
+contact_kicker = "Kontakt"
 contact_title = "Začněte svůj projekt"
 contact_text = "Znáte výzvy svých zákazníků. My poskytujeme technologie a výrobu, která vám pomůže je vyřešit. Pojďme si promluvit o vašem dalším projektu."
 contact_phone_note = "Nebo zavolejte přímo"
@@ -41,6 +42,44 @@ testimonials = [
   { quote = "Oceňujeme kvalitu UV potisku i ochotu poradit s návrhem. Výsledek předčil naše očekávání.", name = "Petra Svobodová", role = "Produktová manažerka, Vzorová a.s." },
   { quote = "Prototypy jsme měli v ruce během pár dní. Skvělá komunikace a férové ceny.", name = "Martin Dvořák", role = "Konstruktér, Demo Industries" },
   { quote = "Testy odolnosti nám odhalily slabiny ještě před uvedením na trh. Ušetřilo nám to spoustu starostí.", name = "Lucie Horáková", role = "Vývojářka, Příklad Tech" },
+]
+
+# ---- Pro koho je Studio ----
+audience_kicker = "Pro koho"
+audience_title = "Pro koho je Studio"
+audience_lead = "Ať řešíte první prototyp, nebo sériovou výrobu, přizpůsobíme se vašemu oboru i tempu."
+audience = [
+  { icon = "company", title = "Firmy", desc = "Potřebujete kryty, díly nebo komponenty na míru? Zajistíme návrh, výrobu i potisk od jednoho dodavatele, bez koordinace více firem." },
+  { icon = "rocket", title = "Startupy", desc = "Ověřte produkt dřív, než utratíte za formy. Rychlé prototypy a malé série pomohou doladit design i funkci před uvedením na trh." },
+  { icon = "school", title = "Školy a výzkum", desc = "Modely, pomůcky a funkční vzorky pro výuku i výzkumné projekty. Poradíme s návrhem i volbou vhodného materiálu." },
+  { icon = "factory", title = "Průmysl", desc = "Odolné kryty, přípravky a náhradní díly pro provoz. Otestujeme je v teplotách od -40 do +170 °C ještě před nasazením." },
+  { icon = "code", title = "Vývojové týmy", desc = "Od CAD návrhu po funkční prototyp během dní. Iterujte rychle a testujte reálné kusy, ne jen rendery." },
+]
+
+# ---- Proces ----
+process_kicker = "Jak to probíhá"
+process_title = "Náš proces"
+process_lead = "Jasných pět kroků od prvního kontaktu po předání hotových dílů."
+process = [
+  { number = "01", title = "Konzultace", desc = "Probereme záměr, požadavky, materiál a termín. Stačí poslat nápad, náčrt nebo hotový model." },
+  { number = "02", title = "Návrh a CAD", desc = "Připravíme nebo upravíme 3D model a navrhneme optimální řešení pro tisk i výrobu." },
+  { number = "03", title = "Prototyp", desc = "Vyrobíme funkční vzorek k ověření rozměrů, vzhledu i funkce a doladíme detaily podle zpětné vazby." },
+  { number = "04", title = "Výroba", desc = "Tiskneme, potiskujeme a kompletujeme, od jednoho kusu po sérii, u nás nebo u ověřených partnerů." },
+  { number = "05", title = "Dodání", desc = "Zkontrolujeme kvalitu, případně provedeme testy odolnosti a předáme díly připravené k nasazení." },
+]
+
+# ---- FAQ ----
+faq_kicker = "FAQ"
+faq_title = "Často kladené dotazy"
+faq_text = "Rychlé odpovědi na to, co řeší většina zákazníků, než se rozhodne pro spolupráci. Nenašli jste, co hledáte? Ozvěte se."
+faq_cta = "Napsat dotaz"
+faq = [
+  { q = "Kolik zakázka stojí?", a = "Cena vychází z náročnosti návrhu, množství, materiálu a technologie. Pošlete nám model nebo popis a obratem připravíme nezávaznou kalkulaci." },
+  { q = "Jak rychlé jsou dodací lhůty?", a = "Jednoduché prototypy zvládneme i během několika dní. U sérií a složitějších zakázek termín potvrdíme po konzultaci podle rozsahu." },
+  { q = "Jaká je minimální série?", a = "Vyrobíme i jediný kus. Stejně tak zvládneme malé i větší série, řešení navrhneme podle množství." },
+  { q = "Podepíšete NDA?", a = "Ano. S citlivými projekty běžně pracujeme pod dohodou o mlčenlivosti, kterou rádi podepíšeme ještě před zahájením spolupráce." },
+  { q = "Děláte jen prototypy, nebo i sériovou výrobu?", a = "Obojí. Provedeme vás cestou od prototypu přes ověření až po sériovou výrobu, u nás nebo ve spolupráci s ověřenými partnery." },
+  { q = "V jakém formátu mám dodat podklady?", a = "Ideální je 3D model (STEP, STL, 3MF). Nemáte model? Stačí náčrt, fotka nebo popis a model vytvoříme za vás v rámci CAD služby." },
 ]
 
 # ---- O nás ----
@@ -205,21 +244,28 @@ image = "big-3D-4"
 imageAlt = "Průmyslové pouzdro pro CHESTER"
 tag = "Velkoformátový tisk"
 title = "Pouzdro pro CHESTER"
-desc = "Odolný kryt pro modulární IoT bránu HARDWARIO CHESTER. Vytiskli jsme jej velkoformátově v jednom kuse, s přesnými otvory pro antény a konektory pro nasazení v průmyslovém prostředí."
+desc = "Odolný kryt pro modulární IoT bránu HARDWARIO CHESTER. Vytiskli jsme jej velkoformátově v jednom kuse, s přesnými otvory pro antény a konektory. Výsledkem je kryt bez lepených spojů, který vydrží i v náročném průmyslovém prostředí."
 
 [[extra.projects]]
 image = "3D-print-4"
 imageAlt = "Prototyp senzoru CHESTER Clime"
 tag = "Prototyp"
 title = "Prototyp CHESTER Clime"
-desc = "Rychlý prototyp pouzdra bezdrátového senzoru teploty a vlhkosti CHESTER Clime. Od CAD návrhu po funkční vzorek během několika dní, připravený k ověření v provozu."
+desc = "Rychlý prototyp pouzdra bezdrátového senzoru teploty a vlhkosti CHESTER Clime. Od CAD návrhu po funkční vzorek během několika dní, připravený k ověření rozměrů i osazení ještě před výrobou série."
 
 [[extra.projects]]
 image = "UV-print-1"
 imageAlt = "UV potisk krytů zařízení"
 tag = "UV potisk"
 title = "Branding krytů zařízení"
-desc = "Barevný UV potisk log a popisků přímo na plastové kryty zařízení. Odolné značení s bílým podtiskem a parciálním lakem pro profesionální vzhled produktů."
+desc = "Barevný UV potisk log a popisků přímo na plastové kryty zařízení. Odolné značení s bílým podtiskem a parciálním lakem dodalo produktům profesionální vzhled, bez nutnosti drahého vstřikování."
+
+[[extra.projects]]
+image = "Durability-test-4"
+imageAlt = "Test odolnosti zařízení v klimatické komoře"
+tag = "Test odolnosti"
+title = "Ověření odolnosti senzoru"
+desc = "Teplotní cykly od -40 do +170 °C pro venkovní IoT zařízení. Sledovali jsme chování elektroniky i materiálu krytu a odhalili slabé místo těsnění ještě před výrobou série, což zákazníkovi ušetřilo nákladné reklamace."
 
 # ---- Zakázky ----
 [[extra.contracts]]
@@ -230,7 +276,7 @@ desc = "Objevte plný potenciál IoT díky našemu zakázkovému vývoji. V HARD
 primary_label = "Poptat vývoj"
 primary_href = "#form"
 secondary_label = "Zjistit více"
-secondary_href = "#"
+secondary_href = "#proces"
 
 [[extra.contracts]]
 image = "vyroba.svg"
@@ -240,5 +286,5 @@ desc = "Máte produkt, výrobek nebo díl, který potřebujete vyrábět ve vět
 primary_label = "Poptat výrobu"
 primary_href = "#form"
 secondary_label = "Zjistit více"
-secondary_href = "#"
+secondary_href = "#proces"
 +++

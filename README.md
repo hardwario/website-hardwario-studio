@@ -67,7 +67,7 @@ web přegeneruje.
   označené komentářem v `_index.md` / `_index.en.md`) — nahraďte skutečnými.
 - **Texty projektů** vychází z reálných produktů HARDWARIO a.s. (CHESTER, CHESTER Clime) —
   potvrďte/upřesněte detaily.
+- **FAQ** texty (cena, termíny, NDA…) ověřte s obchodem/výrobou, ať sedí realitě.
 - **Anglické texty** jsou překlad — projděte tón a formulace.
 - **Kontaktní formulář** nemá backend (`action="#"`) — napojte na svůj endpoint.
-- **Odkazy** `href="#"` (např. „Zjistit více" u zakázek) vedou zatím nikam.
 - **`base_url`** v `config.toml` je placeholder (`https://studio.hardwario.com`).

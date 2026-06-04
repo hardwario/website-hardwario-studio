@@ -5,7 +5,7 @@ description = "Custom 3D printing, UV printing, testing, manufacturing and devel
 
 [extra]
 # ---- Hero ----
-hero_title = "Custom 3D printing, UV printing, testing, manufacturing and development"
+hero_title = "Custom 3D printing, UV printing, testing, manufacturing and development."
 hero_cta_primary = "Book a meeting"
 hero_cta_secondary = "Our services"
 
@@ -18,6 +18,7 @@ projects_title = "Our projects"
 contracts_title = "Contracts"
 
 # ---- Contact ----
+contact_kicker = "Contact"
 contact_title = "Start your project"
 contact_text = "You know your customers' challenges. We provide the technology and manufacturing to help you solve them. Let's talk about your next project."
 contact_phone_note = "Or call us directly"
@@ -41,6 +42,44 @@ testimonials = [
   { quote = "We appreciate the quality of the UV printing and the willingness to advise on the design. The result exceeded our expectations.", name = "Petra Svobodová", role = "Product Manager, Example Inc." },
   { quote = "We had the prototypes in hand within a few days. Great communication and fair prices.", name = "Martin Dvořák", role = "Design Engineer, Demo Industries" },
   { quote = "The durability tests revealed weaknesses before launch. It saved us a lot of trouble.", name = "Lucie Horáková", role = "Developer, Example Tech" },
+]
+
+# ---- Who Studio is for ----
+audience_kicker = "Who it's for"
+audience_title = "Who Studio is for"
+audience_lead = "Whether you're tackling a first prototype or series production, we adapt to your field and your pace."
+audience = [
+  { icon = "company", title = "Companies", desc = "Need custom enclosures, parts or components? We handle design, manufacturing and printing from a single supplier, with no need to coordinate multiple vendors." },
+  { icon = "rocket", title = "Startups", desc = "Validate your product before spending on tooling. Fast prototypes and small batches help you refine design and function before launch." },
+  { icon = "school", title = "Schools & research", desc = "Models, teaching aids and functional samples for education and research projects. We'll advise on design and material choice." },
+  { icon = "factory", title = "Industry", desc = "Rugged enclosures, fixtures and spare parts for operation. We test them from -40 to +170 °C before deployment." },
+  { icon = "code", title = "Development teams", desc = "From CAD design to a functional prototype in days. Iterate fast and test real parts, not just renders." },
+]
+
+# ---- Process ----
+process_kicker = "How it works"
+process_title = "Our process"
+process_lead = "Five clear steps from first contact to delivery of finished parts."
+process = [
+  { number = "01", title = "Consultation", desc = "We discuss the goal, requirements, material and timeline. Just send an idea, a sketch or a finished model." },
+  { number = "02", title = "Design & CAD", desc = "We create or adjust the 3D model and propose the optimal solution for printing and manufacturing." },
+  { number = "03", title = "Prototype", desc = "We produce a functional sample to verify dimensions, look and function, and fine-tune the details based on feedback." },
+  { number = "04", title = "Manufacturing", desc = "We print, decorate and assemble, from a single piece to a series, in-house or with trusted partners." },
+  { number = "05", title = "Delivery", desc = "We check quality, optionally run durability tests, and hand over parts ready for deployment." },
+]
+
+# ---- FAQ ----
+faq_kicker = "FAQ"
+faq_title = "Frequently asked questions"
+faq_text = "Quick answers to what most customers want to know before getting started. Can't find what you're looking for? Get in touch."
+faq_cta = "Ask a question"
+faq = [
+  { q = "How much does a project cost?", a = "The price depends on design complexity, quantity, material and technology. Send us a model or a description and we'll prepare a non-binding quote right away." },
+  { q = "How fast are the lead times?", a = "Simple prototypes can be ready within a few days. For series and more complex projects we confirm the timeline after a consultation based on scope." },
+  { q = "What's the minimum order?", a = "We'll make even a single piece. We also handle small and larger series — we'll propose a solution to match the quantity." },
+  { q = "Will you sign an NDA?", a = "Yes. We routinely work on sensitive projects under a non-disclosure agreement, which we're happy to sign before we start." },
+  { q = "Do you only do prototypes, or series production too?", a = "Both. We'll guide you from prototype through validation to series production, in-house or in cooperation with trusted partners." },
+  { q = "What format should I send my files in?", a = "A 3D model is ideal (STEP, STL, 3MF). No model? A sketch, photo or description is enough and we'll create the model for you as part of the CAD service." },
 ]
 
 # ---- About us ----
@@ -205,21 +244,28 @@ image = "big-3D-4"
 imageAlt = "Industrial enclosure for CHESTER"
 tag = "Large-format printing"
 title = "Enclosure for CHESTER"
-desc = "A rugged enclosure for the modular HARDWARIO CHESTER IoT gateway. We printed it large-format in a single piece, with precise cut-outs for antennas and connectors for deployment in industrial environments."
+desc = "A rugged enclosure for the modular HARDWARIO CHESTER IoT gateway. We printed it large-format in a single piece, with precise cut-outs for antennas and connectors. The result is an enclosure with no glued joints that holds up in demanding industrial environments."
 
 [[extra.projects]]
 image = "3D-print-4"
 imageAlt = "CHESTER Clime sensor prototype"
 tag = "Prototype"
 title = "CHESTER Clime prototype"
-desc = "A rapid prototype housing for the CHESTER Clime wireless temperature and humidity sensor. From CAD design to a functional sample in a few days, ready for field verification."
+desc = "A rapid prototype housing for the CHESTER Clime wireless temperature and humidity sensor. From CAD design to a functional sample in a few days, ready to verify dimensions and fit before any series production."
 
 [[extra.projects]]
 image = "UV-print-1"
 imageAlt = "UV printing on device enclosures"
 tag = "UV printing"
 title = "Device enclosure branding"
-desc = "Full-colour UV printing of logos and labels directly onto plastic device enclosures. Durable marking with a white underprint and spot varnish for a professional product look."
+desc = "Full-colour UV printing of logos and labels directly onto plastic device enclosures. Durable marking with a white underprint and spot varnish gave the products a professional look, with no expensive injection moulding."
+
+[[extra.projects]]
+image = "Durability-test-4"
+imageAlt = "Durability test of a device in a climate chamber"
+tag = "Durability testing"
+title = "Sensor durability verification"
+desc = "Temperature cycles from -40 to +170 °C for an outdoor IoT device. We observed both the electronics and the enclosure material and uncovered a weak point in the seal before series production, saving the customer costly complaints."
 
 # ---- Contracts ----
 [[extra.contracts]]
@@ -230,7 +276,7 @@ desc = "Discover the full potential of IoT with our custom development. At HARDW
 primary_label = "Request development"
 primary_href = "#form"
 secondary_label = "Learn more"
-secondary_href = "#"
+secondary_href = "#proces"
 
 [[extra.contracts]]
 image = "vyroba.svg"
@@ -240,5 +286,5 @@ desc = "Do you have a product, item or part that you need to manufacture in larg
 primary_label = "Request manufacturing"
 primary_href = "#form"
 secondary_label = "Learn more"
-secondary_href = "#"
+secondary_href = "#proces"
 +++

@@ -1,0 +1,22 @@
+{% import "macros.html" as macros %}
+
+<section class="faq" id="faq">
+  <div class="container faq__inner">
+    <div class="faq__copy" data-aos="fade-right">
+      <div class="section__head">
+      <span class="kicker">{{ d.faq_kicker }}</span>
+      <h2 class="h2--big">{{ d.faq_title }}</h2>
+      </div>
+      {% if d.faq_text %}<p class="lead">{{ d.faq_text }}</p>{% endif %}
+      {% if d.faq_cta %}<a href="#form" class="btn btn--primary">{{ d.faq_cta }}</a>{% endif %}
+    </div>
+    <div class="faq__list" data-aos="fade-left">
+      {% for item in d.faq %}
+      <details class="faq-item"{% if loop.first %} open{% endif %}>
+        <summary>{{ item.q }}<span class="faq-item__icon" aria-hidden="true"></span></summary>
+        <div class="faq-item__answer"><p>{{ item.a }}</p></div>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</section>

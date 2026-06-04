@@ -202,6 +202,37 @@
   });
 })();
 
+/* Process — highlight the step nearest the viewport centre ---------------- */
+(function () {
+  const list = document.querySelector(".process__list");
+  if (!list) return;
+  const steps = Array.from(list.querySelectorAll(".process__step"));
+  if (!steps.length) return;
+
+  let active = -1;
+  let ticking = false;
+
+  function update() {
+    ticking = false;
+    const focusY = window.innerHeight * 0.5;
+    let best = 0;
+    let bestDist = Infinity;
+    steps.forEach((step, i) => {
+      const rect = step.getBoundingClientRect();
+      const dist = Math.abs(rect.top + rect.height / 2 - focusY);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    if (best === active) return;
+    active = best;
+    steps.forEach((step, i) => step.classList.toggle("process__step--active", i === best));
+  }
+
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
+})();
+
 /* Language preference cookie --------------------------------------------- */
 (function () {
   const current = document.documentElement.lang || "cs";
@@ -219,4 +250,100 @@
   if (pref && pref !== current) {
     location.replace(pref === "en" ? "/en/" : "/");
   }
+})();
+
+/* Vlastní select (dropdown) – stejný jako v Academy ---------------------- */
+(function () {
+  let uid = 0;
+  document.querySelectorAll(".contact-form select").forEach((native) => {
+    const id = "cselect-" + uid++;
+    const wrap = document.createElement("div");
+    wrap.className = "cselect";
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "cselect__btn";
+    btn.setAttribute("aria-haspopup", "listbox");
+    btn.setAttribute("aria-expanded", "false");
+    const valEl = document.createElement("span");
+    valEl.className = "cselect__value";
+    btn.appendChild(valEl);
+    btn.insertAdjacentHTML("beforeend",
+      '<svg class="cselect__arrow" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>');
+
+    const menu = document.createElement("ul");
+    menu.className = "cselect__menu";
+    menu.setAttribute("role", "listbox");
+
+    let placeholder = "Vyberte…";
+    const optionEls = [];
+    Array.from(native.options).forEach((o, i) => {
+      if (o.value === "") { placeholder = o.textContent; return; }
+      const li = document.createElement("li");
+      li.className = "cselect__opt";
+      li.id = id + "-opt-" + i;
+      li.setAttribute("role", "option");
+      li.dataset.value = o.value;
+      li.textContent = o.textContent;
+      if (o.selected) li.setAttribute("aria-selected", "true");
+      menu.appendChild(li);
+      optionEls.push(li);
+    });
+
+    function syncLabel() {
+      const sel = native.options[native.selectedIndex];
+      if (!sel || sel.value === "") { valEl.textContent = placeholder; wrap.classList.add("is-placeholder"); }
+      else { valEl.textContent = sel.textContent; wrap.classList.remove("is-placeholder"); }
+    }
+    syncLabel();
+
+    wrap.append(btn, menu);
+    native.after(wrap);
+    native.hidden = true;
+    native.setAttribute("tabindex", "-1");
+
+    let active = -1;
+    function setActive(i) {
+      active = Math.max(0, Math.min(optionEls.length - 1, i));
+      optionEls.forEach((li, idx) => li.classList.toggle("is-active", idx === active));
+      const el = optionEls[active];
+      if (el) { el.scrollIntoView({ block: "nearest" }); menu.setAttribute("aria-activedescendant", el.id); }
+    }
+    function open() {
+      wrap.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      const cur = optionEls.findIndex((li) => li.getAttribute("aria-selected") === "true");
+      setActive(cur >= 0 ? cur : 0);
+    }
+    function close() { wrap.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); }
+    function choose(li) {
+      native.value = li.dataset.value;
+      optionEls.forEach((x) => x.removeAttribute("aria-selected"));
+      li.setAttribute("aria-selected", "true");
+      syncLabel();
+      native.dispatchEvent(new Event("change", { bubbles: true }));
+      close();
+      btn.focus();
+    }
+
+    btn.addEventListener("click", () => (wrap.classList.contains("is-open") ? close() : open()));
+    menu.addEventListener("click", (e) => {
+      const li = e.target.closest(".cselect__opt");
+      if (li) choose(li);
+    });
+    btn.addEventListener("keydown", (e) => {
+      const isOpen = wrap.classList.contains("is-open");
+      if (!isOpen && (e.key === "ArrowDown" || e.key === "ArrowUp" || e.key === "Enter" || e.key === " ")) {
+        e.preventDefault(); open(); return;
+      }
+      if (!isOpen) return;
+      if (e.key === "ArrowDown") { e.preventDefault(); setActive(active + 1); }
+      else if (e.key === "ArrowUp") { e.preventDefault(); setActive(active - 1); }
+      else if (e.key === "Home") { e.preventDefault(); setActive(0); }
+      else if (e.key === "End") { e.preventDefault(); setActive(optionEls.length - 1); }
+      else if (e.key === "Enter" || e.key === " ") { e.preventDefault(); if (optionEls[active]) choose(optionEls[active]); }
+      else if (e.key === "Escape") { close(); }
+    });
+    document.addEventListener("click", (e) => { if (!wrap.contains(e.target)) close(); });
+  });
 })();

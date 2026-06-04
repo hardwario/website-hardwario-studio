@@ -23,14 +23,16 @@
   {%- set css_files = [
     "base/tokens.css", "base/reset.css", "base/typography.css", "base/layout.css", "base/animations.css",
     "components/ui.css", "components/header.css", "components/footer.css",
-    "components/hero.css", "components/steps.css", "components/services.css", "components/projects.css",
-    "components/testimonials.css", "components/contracts.css", "components/contact.css",
+    "components/hero.css", "components/steps.css", "components/services.css",
+    "components/audience.css", "components/process.css", "components/projects.css",
+    "components/testimonials.css", "components/contracts.css",
+    "components/faq.css", "components/contact.css",
     "components/about.css", "components/product.css", "components/cta.css",
     "base/responsive.css"
   ] -%}
   {% for f in css_files %}<link rel="stylesheet" href="{{ get_url(path='css/' ~ f, cachebust=true) }}">
   {% endfor %}
-  <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg') }}" type="image/svg+xml">
+  <link rel="icon" href="{{ get_url(path='images/HARDWARIO.svg', cachebust=true) }}" type="image/svg+xml">
 </head>
 <body>
 
