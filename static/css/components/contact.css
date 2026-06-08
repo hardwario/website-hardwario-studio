@@ -70,6 +70,10 @@
   outline: none; border-color: var(--blue);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 22%, transparent);
 }
+.cselect.is-invalid .cselect__btn {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--red) 18%, transparent);
+}
 .cselect.is-placeholder .cselect__value { color: var(--text-faint); }
 .cselect__arrow { width: 12px; height: 8px; flex: none; color: var(--gray-6b); transition: transform .2s ease, color .15s ease; }
 .cselect.is-open .cselect__arrow { transform: rotate(180deg); color: var(--blue); }
@@ -103,6 +107,32 @@
 }
 
 .contact-form__submit { align-self: flex-start; }
+
+/* Privacy notice */
+.contact-form__consent {
+  margin: 0;
+  font-size: 14px; font-weight: 400; line-height: 22px;
+  color: var(--text-soft); letter-spacing: 0;
+}
+.contact-form__consent-text a {
+  color: var(--text); text-decoration: underline; text-underline-offset: 2px;
+}
+.contact-form__consent-text a:hover { color: var(--red); }
+
+/* Submission status */
+.contact-form__status {
+  margin: 0; padding: 12px 16px; border-radius: 8px;
+  font-size: 14px; line-height: 22px;
+}
+.contact-form__status.is-success {
+  background: color-mix(in srgb, var(--blue) 10%, transparent);
+  color: var(--blue);
+}
+.contact-form__status.is-error {
+  background: color-mix(in srgb, var(--red) 12%, transparent);
+  color: var(--red);
+}
+.contact-form button[type="submit"]:disabled { opacity: .6; cursor: not-allowed; }
 
 /* Responsive (Academy drží tato pravidla v responsive.css; tady lokálně) */
 @media (max-width: 1280px) {
