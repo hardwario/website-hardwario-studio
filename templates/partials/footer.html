@@ -66,7 +66,7 @@
 
   <div class="site-footer__bottom">
     <div class="container">
-      <p>Copyright © {{ config.extra.year }} HARDWARIO a.s.</p>
+      <p>Copyright © {{ now() | date(format="%Y") }} HARDWARIO a.s.</p>
       <p>{{ trans(key='f_tagline', lang=lang) }}</p>
     </div>
   </div>

@@ -45,6 +45,19 @@
   );
 })();
 
+/* FAQ — single open accordion -------------------------------------------- */
+(function () {
+  const items = document.querySelectorAll(".faq-item");
+  if (!items.length) return;
+  items.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (item.open) {
+        items.forEach((other) => { if (other !== item) other.open = false; });
+      }
+    });
+  });
+})();
+
 /* Animate on scroll ------------------------------------------------------ */
 (function () {
   const els = document.querySelectorAll("[data-aos], [data-aos-stagger]");
@@ -240,7 +253,7 @@
     document.cookie = "lang=" + v + ";path=/;max-age=31536000;samesite=lax";
   }
   function getCookie() {
-    const m = document.cookie.match(/(?:^|;\s*)lang=(cs|en)\b/);
+    const m = document.cookie.match(/(?:^|;\s*)lang=(cs|en|de|sk|pl)\b/);
     return m ? m[1] : null;
   }
   document.querySelectorAll("[data-lang-switch]").forEach((el) => {
@@ -248,7 +261,7 @@
   });
   const pref = getCookie();
   if (pref && pref !== current) {
-    location.replace(pref === "en" ? "/en/" : "/");
+    location.replace(pref === "cs" ? "/" : "/" + pref + "/");
   }
 })();
 

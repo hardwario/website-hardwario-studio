@@ -53,7 +53,7 @@
 [data-theme="dark"] .tcard__avatar { color: var(--dark-1a); }
 .tcard__name { display: flex; flex-direction: column; }
 .tcard__name strong { font-size: 16px; font-weight: 700; color: var(--heading); }
-.tcard__name span { font-size: 14px; color: var(--text-mute); }
+.tcard__name span { font-size: 15px; color: var(--text-mute); }
 
 /* Marquee control buttons (mobile) */
 .marquee__btn {
