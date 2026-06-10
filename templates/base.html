@@ -87,10 +87,12 @@
     })();
   </script>
 
-  {# Fonts — only the weights actually used (400/500/600/700) #}
+  {# Fonts — only the weights actually used (400/500/600/700); loaded non-render-blocking #}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  {%- set font_href = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" %}
+  <link rel="stylesheet" href="{{ font_href }}" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="{{ font_href }}"></noscript>
 
   {# Third parties used further down the page — warm up the connection early #}
   <link rel="preconnect" href="https://player.vimeo.com">
