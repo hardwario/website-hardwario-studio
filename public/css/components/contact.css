@@ -60,7 +60,8 @@
 .cselect__btn {
   width: 100%; height: 42px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 0 16px; border: 1px solid var(--input-bd); border-radius: 8px;
-  background: var(--input-bg); color: var(--text); font-size: 16px; font-weight: 400; text-align: left; cursor: pointer;
+  background: var(--input-bg); color: var(--text); font-size: 16px; font-weight: 400; letter-spacing: 0;
+  text-align: left; cursor: pointer;
   transition: border-color .15s ease, box-shadow .15s ease;
 }
 .cselect__btn:hover { border-color: var(--gray-6b); }
@@ -89,12 +90,12 @@
 .cselect.is-open .cselect__menu { opacity: 1; transform: none; visibility: visible; pointer-events: auto; }
 .cselect__opt {
   display: flex; align-items: center; justify-content: space-between; gap: 10px;
-  padding: 11px 14px; border-radius: 8px;
-  font-size: 16px; font-weight: 400; color: var(--text); cursor: pointer;
+  padding: 8px 14px; border-radius: 8px;
+  font-size: 14px; font-weight: 400; letter-spacing: 0; color: var(--text); cursor: pointer;
 }
 .cselect__opt:hover,
 .cselect__opt.is-active { background: var(--border-hair); }
-.cselect__opt[aria-selected="true"] { color: var(--red); font-weight: 600; }
+.cselect__opt[aria-selected="true"] { color: var(--red); }
 .cselect__opt[aria-selected="true"]::after {
   content: ""; flex: none; width: 16px; height: 16px;
   background: center/contain no-repeat
