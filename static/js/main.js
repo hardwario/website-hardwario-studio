@@ -31,8 +31,8 @@
 (function () {
   const media = document.querySelector("[data-hero-video]");
   if (!media || !media.dataset.src) return;
-  // Small screens use a CSS background image (the iframe is display:none there).
-  if (matchMedia("(max-width: 1150px)").matches) return;
+  // Phones use a CSS background photo (the iframe is display:none there); tablets get the video.
+  if (matchMedia("(max-width: 600px)").matches) return;
 
   function inject() {
     if (media.querySelector("iframe")) return;

@@ -97,8 +97,8 @@
   <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin>
   <link rel="preconnect" href="https://api.hsforms.com">
 
-  {# Mobile hero uses this as a CSS background — preload so it isn't discovered late #}
-  <link rel="preload" as="image" href="{{ get_url(path='images/mobile-hero.png') }}" media="(max-width: 1150px)">
+  {# Phones use this as a CSS background — preload so it isn't discovered late #}
+  <link rel="preload" as="image" href="{{ get_url(path='images/mobile-hero.png') }}" media="(max-width: 600px)">
 
   {# All CSS inlined in load order — eliminates render-blocking requests on this single-page site #}
   {%- set css_files = [

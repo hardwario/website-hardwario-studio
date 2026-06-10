@@ -18,9 +18,12 @@
 .hero__media { position: absolute; inset: 0; overflow: hidden; background: #000; }
 .hero__video {
   position: absolute; top: 50%; left: 50%;
-  width: 100%; height: 100%;
-  min-width: 180%; min-height: 180%;
-  transform: translate(-50%, -50%) scale(1.12);
+  /* The source video is ultrawide (~2.39:1). Match that aspect exactly so the Vimeo player
+     fills the iframe edge-to-edge (no letterbox bars top/bottom), then size it to cover the
+     hero — the wide sides get clipped, which is the zoomed-in look. */
+  width: 100vw; height: 41.78vw;          /* 2.39:1 across the full width … */
+  min-width: 239.3vh; min-height: 100vh;  /* …or the full height at 2.39:1, whichever covers */
+  transform: translate(-50%, -50%) scale(1.04);
   transform-origin: center center;
   border: 0; pointer-events: none;
 }
@@ -56,11 +59,9 @@
 .hero, .steps, .services, .audience, .process, .projects,
 .testimonials, .contracts, .faq, .contact, .about-us, .product { scroll-margin-top: 90px; }
 
-@media (max-width: 1445px) {
-  .hero__video { min-width: 200%; min-height: 200%; transform: translate(-50%, -50%) scale(1.2); }
-}
-
-@media (max-width: 1150px) {
+/* Phones only — swap the video for the portrait photo + bottom-aligned content.
+   Tablets keep the video (handled by the cover rule above). */
+@media (max-width: 600px) {
   .hero {
     min-height: calc(100svh - 72px);
     padding: 24px 28px 200px;
@@ -80,8 +81,4 @@
   .hero__buttons { width: 100%; flex-direction: column; align-items: flex-start; gap: 24px; }
   .hero__buttons .btn { display: inline-flex; }
   .hero .btn--ghost { backdrop-filter: none; }
-}
-
-@media (max-width: 800px) {
-  .hero__video { min-width: 260%; min-height: 260%; transform: translate(-50%, -50%) scale(1.28); }
 }
