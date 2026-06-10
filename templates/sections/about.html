@@ -10,7 +10,8 @@
         <p class="about-us__desc">{{ d.about_us.desc2 }}</p>
       </div>
       <div class="about-us__image">
-        <img src="{{ get_url(path='images/HARDWARIO.svg') }}" alt="HARDWARIO">
+        {% set about_meta = get_image_metadata(path='static/images/HARDWARIO.svg', allow_missing=true) %}
+        <img src="{{ get_url(path='images/HARDWARIO.svg') }}" alt="HARDWARIO"{% if about_meta %} width="{{ about_meta.width }}" height="{{ about_meta.height }}"{% endif %} loading="lazy" decoding="async">
       </div>
     </div>
   </div>

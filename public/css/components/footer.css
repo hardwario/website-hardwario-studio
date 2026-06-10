@@ -19,7 +19,7 @@
 }
 .footer-col--logo { display: flex; align-items: center; justify-content: center; }
 .footer-col--logo .footer-logo__img { width: 72px; height: auto; }
-.footer-col h4 { color: #fff; font-size: 16px; font-weight: 500; margin-bottom: 16px; }
+.footer-col__title { color: #fff; font-size: 16px; font-weight: 500; line-height: 1.4; margin-bottom: 16px; }
 .footer-col ul { display: flex; flex-direction: column; gap: 4px; }
 .footer-col a, .footer-col li { font-size: 16px; font-weight: 400; line-height: 24px; color: var(--footer-text); }
 .footer-col a { transition: color .15s; }

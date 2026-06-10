@@ -27,6 +27,33 @@
   );
 })();
 
+/* Hero video — inject the Vimeo iframe after first paint (off the LCP path) -- */
+(function () {
+  const media = document.querySelector("[data-hero-video]");
+  if (!media || !media.dataset.src) return;
+  // Small screens use a CSS background image (the iframe is display:none there).
+  if (matchMedia("(max-width: 1150px)").matches) return;
+
+  function inject() {
+    if (media.querySelector("iframe")) return;
+    const iframe = document.createElement("iframe");
+    iframe.className = "hero__video";
+    iframe.src = media.dataset.src;
+    iframe.title = media.dataset.title || "";
+    iframe.allow = "autoplay; fullscreen; picture-in-picture";
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("tabindex", "-1");
+    iframe.setAttribute("aria-hidden", "true");
+    media.insertBefore(iframe, media.firstChild);
+  }
+
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(inject, { timeout: 2500 });
+  } else {
+    window.addEventListener("load", function () { setTimeout(inject, 200); });
+  }
+})();
+
 /* Mobile nav ------------------------------------------------------------- */
 (function () {
   const toggle = document.querySelector(".nav-toggle");
@@ -43,6 +70,22 @@
       toggle.setAttribute("aria-expanded", "false");
     })
   );
+})();
+
+/* Language dropdown — keep aria-expanded honest (CSS opens on hover/focus) -- */
+(function () {
+  document.querySelectorAll(".lang-dropdown").forEach((dd) => {
+    const trigger = dd.querySelector(".lang-dropdown__trigger");
+    if (!trigger) return;
+    const sync = (open) => trigger.setAttribute("aria-expanded", String(open));
+    dd.addEventListener("mouseenter", () => sync(true));
+    dd.addEventListener("mouseleave", () => { if (!dd.contains(document.activeElement)) sync(false); });
+    dd.addEventListener("focusin", () => sync(true));
+    // Defer so document.activeElement points at the new focus target.
+    dd.addEventListener("focusout", () => setTimeout(() => {
+      if (!dd.contains(document.activeElement)) sync(false);
+    }, 0));
+  });
 })();
 
 /* FAQ — single open accordion -------------------------------------------- */
@@ -166,6 +209,7 @@
     const SPEED = 0.6;
 
     let paused = false;
+    let inView = true;
     let raf = null;
     let offset = 0;
     function period() { return (track.scrollWidth + gap) / 2; }
@@ -176,7 +220,7 @@
       render();
     }
     function step() {
-      if (!paused) advance(SPEED);
+      if (!paused && inView) advance(SPEED);
       raf = requestAnimationFrame(step);
     }
     const jump = () => Math.min(vp.clientWidth * 0.85, 480);
@@ -212,6 +256,16 @@
     }
     setMode();
     mobile.addEventListener("change", setMode);
+
+    // Stop the rAF loop entirely while the marquee is off-screen (saves CPU/battery).
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver((entries) => {
+        inView = entries[0].isIntersecting;
+        if (mobile.matches || reduce) return;
+        if (inView && !raf) { raf = requestAnimationFrame(step); }
+        else if (!inView && raf) { cancelAnimationFrame(raf); raf = null; }
+      }, { threshold: 0 }).observe(m);
+    }
   });
 })();
 
@@ -411,7 +465,9 @@
 
     const menu = document.createElement("ul");
     menu.className = "cselect__menu";
+    menu.id = id + "-menu";
     menu.setAttribute("role", "listbox");
+    btn.setAttribute("aria-controls", menu.id);
 
     let placeholder = "Vyberte…";
     const optionEls = [];
@@ -453,7 +509,8 @@
       active = Math.max(0, Math.min(optionEls.length - 1, i));
       optionEls.forEach((li, idx) => li.classList.toggle("is-active", idx === active));
       const el = optionEls[active];
-      if (el) { el.scrollIntoView({ block: "nearest" }); menu.setAttribute("aria-activedescendant", el.id); }
+      // aria-activedescendant belongs on the element with DOM focus (the button), not the list.
+      if (el) { el.scrollIntoView({ block: "nearest" }); btn.setAttribute("aria-activedescendant", el.id); }
     }
     function open() {
       wrap.classList.add("is-open");
@@ -461,7 +518,7 @@
       const cur = optionEls.findIndex((li) => li.getAttribute("aria-selected") === "true");
       setActive(cur >= 0 ? cur : 0);
     }
-    function close() { wrap.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); }
+    function close() { wrap.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); btn.removeAttribute("aria-activedescendant"); }
     function choose(li) {
       native.value = li.dataset.value;
       optionEls.forEach((x) => x.removeAttribute("aria-selected"));

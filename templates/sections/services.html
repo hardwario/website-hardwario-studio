@@ -12,8 +12,9 @@
           <div class="split__slider">
             <div class="split__slides" data-service-slides>
               {% for slide in service.slides %}
+              {% set sl_meta = get_image_metadata(path='static/images/' ~ slide.image ~ '.jpg', allow_missing=true) %}
               <div class="split__slide{% if loop.first %} is-active{% endif %}" data-service-slide data-meta="{{ slide.meta }}">
-                <img src="{{ get_url(path='images/' ~ slide.image ~ '.jpg') }}" alt="{{ slide.imageAlt }} {{ loop.index }}" class="split__image">
+                <img src="{{ get_url(path='images/' ~ slide.image ~ '.jpg') }}" alt="{{ slide.imageAlt }} {{ loop.index }}" class="split__image"{% if sl_meta %} width="{{ sl_meta.width }}" height="{{ sl_meta.height }}"{% endif %} loading="lazy" decoding="async">
               </div>
               {% endfor %}
             </div>

@@ -1,13 +1,10 @@
 {% import "macros.html" as macros %}
 
 <section class="hero" id="home">
-  <div class="hero__media" aria-hidden="true">
-    <iframe
-      class="hero__video"
-      src="https://player.vimeo.com/video/1115260939?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1&background=1&controls=0"
-      title="{{ d.hero_title }}"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen></iframe>
+  {# Video is injected by JS after first paint (data-src) so the iframe stays off the critical path. #}
+  <div class="hero__media" aria-hidden="true" data-hero-video
+       data-src="https://player.vimeo.com/video/1115260939?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;muted=1&amp;loop=1&amp;background=1&amp;controls=0"
+       data-title="{{ d.hero_title }}">
     <div class="hero__overlay"></div>
   </div>
   <div class="hero__content">

@@ -9,7 +9,8 @@
       {% for c in d.contracts %}
       <article class="contract" data-aos="fade-up">
         <div class="contract__icon">
-          <img class="contract__image" src="{{ get_url(path='images/' ~ c.image) }}" alt="{{ c.imageAlt }}">
+          {% set c_meta = get_image_metadata(path='static/images/' ~ c.image, allow_missing=true) %}
+          <img class="contract__image" src="{{ get_url(path='images/' ~ c.image) }}" alt="{{ c.imageAlt }}"{% if c_meta %} width="{{ c_meta.width }}" height="{{ c_meta.height }}"{% endif %} loading="lazy" decoding="async">
         </div>
         <div class="contract__text">
           <h3 class="contract__title">{{ c.title }}</h3>

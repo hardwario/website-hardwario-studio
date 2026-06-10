@@ -14,12 +14,13 @@
   <div class="container footer-grid">
     <div class="footer-col footer-col--logo">
       <a href="#top" class="footer-logo" aria-label="{{ trans(key='brand_aria', lang=lang) }}">
-        <img class="footer-logo__img" src="{{ get_url(path='images/HARDWARIO.svg') }}" alt="HARDWARIO Studio">
+        {% set flogo_meta = get_image_metadata(path='static/images/HARDWARIO.svg', allow_missing=true) %}
+        <img class="footer-logo__img" src="{{ get_url(path='images/HARDWARIO.svg') }}" alt="HARDWARIO Studio"{% if flogo_meta %} width="{{ flogo_meta.width }}" height="{{ flogo_meta.height }}"{% endif %} loading="lazy" decoding="async">
       </a>
     </div>
 
     <div class="footer-col">
-      <h4>{{ trans(key='f_branches', lang=lang) }}</h4>
+      <h2 class="footer-col__title">{{ trans(key='f_branches', lang=lang) }}</h2>
       <div class="footer-branches">
         <div><p class="footer-strong">HARDWARIO a.s.</p><a href="https://maps.app.goo.gl/uwNsT2fuUmTaoXc48" target="_blank" rel="noopener noreferrer" class="footer-ext">{{ trans(key='country_cz', lang=lang) }} {{ macros::ext() }}</a></div>
         <div><p class="footer-strong">HARDWARIO LLC</p><a href="https://maps.app.goo.gl/YyUsBivFKc6yYVTr8" target="_blank" rel="noopener noreferrer" class="footer-ext">{{ trans(key='country_us', lang=lang) }} {{ macros::ext() }}</a></div>
@@ -28,7 +29,7 @@
     </div>
 
     <div class="footer-col">
-      <h4>{{ trans(key='f_navigation', lang=lang) }}</h4>
+      <h2 class="footer-col__title">{{ trans(key='f_navigation', lang=lang) }}</h2>
       <ul>
         <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}products/">{{ trans(key='f_products', lang=lang) }}</a></li>
         <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}solutions/">{{ trans(key='f_solutions', lang=lang) }}</a></li>
@@ -40,7 +41,7 @@
     </div>
 
     <div class="footer-col">
-      <h4>{{ trans(key='f_connect', lang=lang) }}</h4>
+      <h2 class="footer-col__title">{{ trans(key='f_connect', lang=lang) }}</h2>
       <ul>
         <li><a href="https://www.linkedin.com/company/13187032" target="_blank" rel="noopener noreferrer" class="footer-ext">LinkedIn {{ macros::ext() }}</a></li>
         <li><a href="https://twitter.com/hardwario_en" target="_blank" rel="noopener noreferrer" class="footer-ext">Twitter/X {{ macros::ext() }}</a></li>
@@ -52,7 +53,7 @@
     </div>
 
     <div class="footer-col">
-      <h4>{{ trans(key='f_company', lang=lang) }}</h4>
+      <h2 class="footer-col__title">{{ trans(key='f_company', lang=lang) }}</h2>
       <ul>
         <li><a href="https://hardwario.com{{ trans(key='hw', lang=lang) | safe }}support/">{{ trans(key='f_support', lang=lang) }}</a></li>
         <li><a href="#form">{{ trans(key='nav_contact', lang=lang) }}</a></li>

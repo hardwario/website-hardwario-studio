@@ -1,5 +1,5 @@
 +++
-title = "HARDWARIO Studio"
+title = "HARDWARIO Studio — Custom 3D printing, UV printing & manufacturing"
 template = "index.html"
 description = "Custom 3D printing, UV printing, testing, manufacturing and development."
 
@@ -32,16 +32,19 @@ cta_secondary = "Contact us"
 cta_phone_note = "Or call us directly:"
 
 # ---- References ----
-# !!! PLACEHOLDER — fictional references, replace with real quotes, names and roles !!!
+# Real HARDWARIO a.s. case studies (hardwario.com/customers). References of the parent
+# company whose technology and manufacturing power the Studio's services.
 testimonials_kicker = "References"
-testimonials_title = "What our customers say"
+testimonials_title = "Trusted by industry"
+testimonials_lead = "HARDWARIO Studio is part of HARDWARIO a.s. The technology and manufacturing our services rely on are trusted by companies worldwide."
 testimonials_prev_aria = "Previous reference"
 testimonials_next_aria = "Next reference"
 testimonials = [
-  { quote = "The cooperation was fast and professional. The large-format printed parts arrived exactly to specification.", name = "Jan Novák", role = "Head of Production, Sample Company Ltd." },
-  { quote = "We appreciate the quality of the UV printing and the willingness to advise on the design. The result exceeded our expectations.", name = "Petra Svobodová", role = "Product Manager, Example Inc." },
-  { quote = "We had the prototypes in hand within a few days. Great communication and fair prices.", name = "Martin Dvořák", role = "Design Engineer, Demo Industries" },
-  { quote = "The durability tests revealed weaknesses before launch. It saved us a lot of trouble.", name = "Lucie Horáková", role = "Developer, Example Tech" },
+  { quote = "Monitoring grain-storage conditions with 1,000+ deployed sensors helped significantly reduce spoilage losses.", name = "GrainLink", role = "Agriculture" },
+  { quote = "Predictive maintenance for pumps detects an approaching seal failure weeks in advance and prevents unplanned downtime.", name = "KSB", role = "Manufacturing" },
+  { quote = "Slope-stability monitoring in Arctic Canada and Brazilian mines via satellite, with verified operation down to −48.8 °C.", name = "DeltaVue", role = "Infrastructure" },
+  { quote = "Real-time monitoring of construction infrastructure, from prototype to production deployment within three months.", name = "Statotest", role = "Construction" },
+  { quote = "Stable-environment monitoring transformed the management of animal comfort and productivity.", name = "SCHAUMANN CZ", role = "Agriculture" },
 ]
 
 # ---- Who Studio is for ----

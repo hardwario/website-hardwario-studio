@@ -1,5 +1,5 @@
 +++
-title = "HARDWARIO Studio"
+title = "HARDWARIO Studio — Druk 3D, druk UV i produkcja na zamówienie"
 template = "index.html"
 description = "Druk 3D na zamówienie, nadruk UV, testy, produkcja i rozwój."
 
@@ -32,16 +32,19 @@ cta_secondary = "Skontaktuj się z nami"
 cta_phone_note = "Lub zadzwoń bezpośrednio:"
 
 # ---- Referencje ----
-# !!! PLACEHOLDER — fikcyjne referencje, zastąp je prawdziwymi cytatami, nazwiskami i rolami !!!
+# Rzeczywiste studia przypadków HARDWARIO a.s. (hardwario.com/customers). Referencje firmy
+# macierzystej, której technologia i produkcja stoją za usługami Studia.
 testimonials_kicker = "Referencje"
-testimonials_title = "Co mówią nasi klienci"
+testimonials_title = "Zaufali nam"
+testimonials_lead = "HARDWARIO Studio jest częścią HARDWARIO a.s. Technologii i produkcji, na których opierają się nasze usługi, ufają firmy na całym świecie."
 testimonials_prev_aria = "Poprzednia referencja"
 testimonials_next_aria = "Następna referencja"
 testimonials = [
-  { quote = "Współpraca przebiegła szybko i profesjonalnie. Części z druku wielkoformatowego dotarły dokładnie według specyfikacji.", name = "Jan Novák", role = "Kierownik produkcji, Przykładowa firma sp. z o.o." },
-  { quote = "Doceniamy jakość nadruku UV oraz gotowość do doradztwa przy projekcie. Wynik przerósł nasze oczekiwania.", name = "Petra Svobodová", role = "Menedżerka produktu, Wzorcowa S.A." },
-  { quote = "Prototypy mieliśmy w rękach w ciągu kilku dni. Świetna komunikacja i uczciwe ceny.", name = "Martin Dvořák", role = "Konstruktor, Demo Industries" },
-  { quote = "Testy odporności ujawniły słabe punkty jeszcze przed wprowadzeniem na rynek. Oszczędziło nam to wielu kłopotów.", name = "Lucie Horáková", role = "Programistka, Przykład Tech" },
+  { quote = "Monitorowanie warunków przechowywania zboża z ponad 1000 wdrożonych czujników pomogło znacznie ograniczyć straty wynikające z zepsucia.", name = "GrainLink", role = "Rolnictwo" },
+  { quote = "Konserwacja predykcyjna pomp wykrywa zbliżającą się awarię uszczelnienia z wyprzedzeniem tygodni i zapobiega nieplanowanym przestojom.", name = "KSB", role = "Przemysł" },
+  { quote = "Monitorowanie stabilności zboczy w arktycznej Kanadzie i brazylijskich kopalniach przez satelitę, z potwierdzoną pracą do −48,8 °C.", name = "DeltaVue", role = "Infrastruktura" },
+  { quote = "Monitorowanie infrastruktury budowlanej w czasie rzeczywistym, od prototypu do wdrożenia produkcyjnego w ciągu trzech miesięcy.", name = "Statotest", role = "Budownictwo" },
+  { quote = "Monitorowanie środowiska w oborze odmieniło zarządzanie komfortem i produktywnością zwierząt.", name = "SCHAUMANN CZ", role = "Rolnictwo" },
 ]
 
 # ---- Dla kogo jest Studio ----
@@ -238,7 +241,7 @@ imageAlt = "Modelowanie CAD"
 meta = "Modyfikacje konstrukcyjne"
 
 # ---- Nasze projekty ----
-# Teksty oparte są na rzeczywistych produktach HARDWARIO a.s. (CHESTER, CHESTER Clime) — prosimy o potwierdzenie / doprecyzowanie szczegółów.
+# Projekty dla rzeczywistych produktów HARDWARIO a.s. (CHESTER, CHESTER Clime).
 [[extra.projects]]
 image = "big-3D-4"
 imageAlt = "Przemysłowa obudowa dla CHESTER"

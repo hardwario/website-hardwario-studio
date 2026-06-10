@@ -9,7 +9,8 @@
         {{ macros::button(label=d.product.button_label, href=d.product.href, variant="primary") }}
       </div>
       <div class="product__image">
-        <img src="{{ get_url(path='images/product.png') }}" alt="{{ d.product.title }}">
+        {% set prod_meta = get_image_metadata(path='static/images/product.png', allow_missing=true) %}
+        <img src="{{ get_url(path='images/product.png') }}" alt="{{ d.product.title }}"{% if prod_meta %} width="{{ prod_meta.width }}" height="{{ prod_meta.height }}"{% endif %} loading="lazy" decoding="async">
       </div>
     </div>
   </div>

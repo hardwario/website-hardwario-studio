@@ -1,5 +1,5 @@
 +++
-title = "HARDWARIO Studio"
+title = "HARDWARIO Studio — Zákazková 3D tlač, UV potlač a výroba"
 template = "index.html"
 description = "Zákazková 3D tlač, UV potlač, testovanie, výroba a vývoj."
 
@@ -32,16 +32,19 @@ cta_secondary = "Kontaktujte nás"
 cta_phone_note = "Alebo zavolajte priamo:"
 
 # ---- Referencie ----
-# !!! PLACEHOLDER — vymyslené referencie, nahraďte skutočnými citáciami, menami a rolami !!!
+# Reálne prípadové štúdie HARDWARIO a.s. (hardwario.com/customers). Referencie materskej
+# firmy, ktorej technológie a výroba stoja za službami Studia.
 testimonials_kicker = "Referencie"
-testimonials_title = "Čo hovoria naši zákazníci"
+testimonials_title = "Dôverujú nám"
+testimonials_lead = "HARDWARIO Studio je súčasťou HARDWARIO a.s. Technológiám a výrobe, na ktorých naše služby stoja, dôverujú firmy po celom svete."
 testimonials_prev_aria = "Predchádzajúca referencia"
 testimonials_next_aria = "Ďalšia referencia"
 testimonials = [
-  { quote = "Spolupráca prebehla rýchlo a profesionálne. Diely z veľkoformátovej tlače dorazili presne podľa zadania.", name = "Jan Novák", role = "Vedúci výroby, Ukážková firma s.r.o." },
-  { quote = "Oceňujeme kvalitu UV potlače aj ochotu poradiť s návrhom. Výsledok predčil naše očakávania.", name = "Petra Svobodová", role = "Produktová manažérka, Vzorová a.s." },
-  { quote = "Prototypy sme mali v ruke počas pár dní. Skvelá komunikácia a férové ceny.", name = "Martin Dvořák", role = "Konštruktér, Demo Industries" },
-  { quote = "Testy odolnosti nám odhalili slabiny ešte pred uvedením na trh. Ušetrilo nám to množstvo starostí.", name = "Lucie Horáková", role = "Vývojárka, Príklad Tech" },
+  { quote = "Monitoring podmienok skladovania obilia s viac než 1 000 nasadenými senzormi pomohol výrazne znížiť straty znehodnotením.", name = "GrainLink", role = "Poľnohospodárstvo" },
+  { quote = "Prediktívna údržba čerpadiel odhalí blížiacu sa poruchu tesnenia s predstihom týždňov a predíde neplánovaným odstávkam.", name = "KSB", role = "Priemysel" },
+  { quote = "Monitoring stability svahov v arktickej Kanade aj brazílskych baniach cez satelit, s overenou prevádzkou až do −48,8 °C.", name = "DeltaVue", role = "Infraštruktúra" },
+  { quote = "Monitoring stavebnej infraštruktúry v reálnom čase, od prototypu k produkčnému nasadeniu počas troch mesiacov.", name = "Statotest", role = "Stavebníctvo" },
+  { quote = "Monitoring maštaľného prostredia premenil riadenie pohody a úžitkovosti hospodárskych zvierat.", name = "SCHAUMANN CZ", role = "Poľnohospodárstvo" },
 ]
 
 # ---- Pre koho je Studio ----
@@ -238,7 +241,7 @@ imageAlt = "CAD modeling"
 meta = "Konštrukčné úpravy"
 
 # ---- Naše projekty ----
-# Texty vychádzajú z reálnych produktov HARDWARIO a.s. (CHESTER, CHESTER Clime) — prosím potvrďte / upresnite detaily.
+# Projekty pre reálne produkty HARDWARIO a.s. (CHESTER, CHESTER Clime).
 [[extra.projects]]
 image = "big-3D-4"
 imageAlt = "Priemyselné puzdro pre CHESTER"

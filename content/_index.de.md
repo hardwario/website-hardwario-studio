@@ -1,5 +1,5 @@
 +++
-title = "HARDWARIO Studio"
+title = "HARDWARIO Studio — 3D-Druck, UV-Druck & Fertigung nach Maß"
 template = "index.html"
 description = "Individueller 3D-Druck, UV-Druck, Prüfung, Fertigung und Entwicklung."
 
@@ -32,16 +32,19 @@ cta_secondary = "Kontaktieren Sie uns"
 cta_phone_note = "Oder rufen Sie uns direkt an:"
 
 # ---- Referenzen ----
-# !!! PLACEHOLDER — fiktive Referenzen, durch echte Zitate, Namen und Rollen ersetzen !!!
+# Echte Fallstudien von HARDWARIO a.s. (hardwario.com/customers). Referenzen des
+# Mutterunternehmens, dessen Technologie und Fertigung die Leistungen des Studios tragen.
 testimonials_kicker = "Referenzen"
-testimonials_title = "Was unsere Kunden sagen"
+testimonials_title = "Sie vertrauen uns"
+testimonials_lead = "HARDWARIO Studio ist Teil von HARDWARIO a.s. Auf die Technologie und Fertigung, auf der unsere Leistungen beruhen, vertrauen Unternehmen weltweit."
 testimonials_prev_aria = "Vorherige Referenz"
 testimonials_next_aria = "Nächste Referenz"
 testimonials = [
-  { quote = "Die Zusammenarbeit verlief schnell und professionell. Die großformatig gedruckten Teile kamen exakt nach Vorgabe an.", name = "Jan Novák", role = "Produktionsleiter, Musterfirma GmbH" },
-  { quote = "Wir schätzen die Qualität des UV-Drucks und die Bereitschaft, bei der Gestaltung zu beraten. Das Ergebnis hat unsere Erwartungen übertroffen.", name = "Petra Svobodová", role = "Produktmanagerin, Beispiel AG" },
-  { quote = "Wir hatten die Prototypen innerhalb weniger Tage in der Hand. Hervorragende Kommunikation und faire Preise.", name = "Martin Dvořák", role = "Konstrukteur, Demo Industries" },
-  { quote = "Die Belastbarkeitstests deckten Schwachstellen schon vor der Markteinführung auf. Das hat uns viel Ärger erspart.", name = "Lucie Horáková", role = "Entwicklerin, Beispiel Tech" },
+  { quote = "Die Überwachung der Getreidelagerung mit über 1.000 Sensoren half, Verderbverluste deutlich zu senken.", name = "GrainLink", role = "Landwirtschaft" },
+  { quote = "Vorausschauende Wartung von Pumpen erkennt einen drohenden Dichtungsausfall Wochen im Voraus und verhindert ungeplante Ausfälle.", name = "KSB", role = "Industrie" },
+  { quote = "Hangstabilitäts-Überwachung im arktischen Kanada und in brasilianischen Minen per Satellit, mit nachgewiesenem Betrieb bis −48,8 °C.", name = "DeltaVue", role = "Infrastruktur" },
+  { quote = "Echtzeit-Überwachung von Bauinfrastruktur, vom Prototyp bis zum Produktiveinsatz innerhalb von drei Monaten.", name = "Statotest", role = "Bauwesen" },
+  { quote = "Die Stallklima-Überwachung veränderte das Management von Tierkomfort und Produktivität.", name = "SCHAUMANN CZ", role = "Landwirtschaft" },
 ]
 
 # ---- Für wen Studio ist ----

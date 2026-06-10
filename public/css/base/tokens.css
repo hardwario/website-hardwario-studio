@@ -11,6 +11,7 @@
   --blue:       #06367a;
   --blue-dark:  #052d66;
   --primary-btn-hover: #252532;
+  --focus:      #06367a;
 
   /* Always-dark / neutral surfaces */
   --dark-1a:    #1a1a22;
@@ -54,6 +55,7 @@
   --red:           #f43f5e;
   --red-80:        rgba(244, 63, 94, .8);
   --red-soft:      rgba(244, 63, 94, .2);
+  --focus:         #6ea8fe;
 
   --bg:            #0f0f14;
   --surface:       #1a1a22;

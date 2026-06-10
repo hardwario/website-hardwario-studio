@@ -1,0 +1,6 @@
+# Zola build output
+/public/
+
+# Local preview artifacts
+preview*.png
+zola-serve.log

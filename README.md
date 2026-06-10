@@ -32,14 +32,13 @@ static/
   css/
     base/                    # tokens, reset, typography, layout, animations, responsive
     components/              # styles for individual sections and UI atoms
-    style.css                # overview of imports (load order)
   js/main.js                 # theme, mobile menu, language switch, FAQ accordion, AOS, sliders
   images/                    # photos, logos, icons
 ```
 
 CSS is split into **base** (design tokens, typography, layout) and **components**
-(one section = one file). Files are loaded individually in `base.html` (with cache busting);
-`style.css` serves as an overview of the load order.
+(one section = one file). The load order lives in the `css_files` list in `base.html`,
+which inlines every file into a single `<style>` block (no render-blocking CSS requests).
 
 ## Editing content
 
