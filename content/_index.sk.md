@@ -50,7 +50,7 @@ audience_title = "Pre koho je Studio"
 audience_lead = "Či riešite prvý prototyp, alebo sériovú výrobu, prispôsobíme sa vášmu odboru aj tempu."
 audience = [
   { icon = "company", title = "Firmy", desc = "Potrebujete kryty, diely alebo komponenty na mieru? Zabezpečíme návrh, výrobu aj potlač od jedného dodávateľa, bez koordinácie viacerých firiem." },
-  { icon = "rocket", title = "Startupy", desc = "Overte produkt skôr, než miniete peniaze za formy. Rýchle prototypy a malé série pomôžu doladiť dizajn aj funkciu pred uvedením na trh." },
+  { icon = "rocket", title = "Startupy", desc = "Overte produkt skôr, než miniete peniaze za formy. Rýchle prototypy a malé série pomôžu doladiť design aj funkciu pred uvedením na trh." },
   { icon = "school", title = "Školy a výskum", desc = "Modely, pomôcky a funkčné vzorky pre výučbu aj výskumné projekty. Poradíme s návrhom aj voľbou vhodného materiálu." },
   { icon = "factory", title = "Priemysel", desc = "Odolné kryty, prípravky a náhradné diely pre prevádzku. Otestujeme ich v teplotách od -40 do +170 °C ešte pred nasadením." },
   { icon = "code", title = "Vývojové tímy", desc = "Od CAD návrhu po funkčný prototyp počas niekoľkých dní. Iterujte rýchlo a testujte reálne kusy, nielen rendery." },
@@ -139,7 +139,7 @@ imageAlt = "Veľkoformátová 3D tlač"
 meta = "Tryska 0,6 mm"
 
 [[extra.service]]
-title = "Profesionálna UV potlač s vaším dizajnom"
+title = "Profesionálna UV potlač s vaším designom"
 desc = "Chcete dodať svojim produktom originálny vzhľad alebo zvýšiť ich rozpoznateľnosť? Ponúkame UV potlač s vysokým rozlíšením pre branding, logá, popisy aj dekorácie. Vďaka modernej technológii dokážeme tlačiť farebne (CMYK), bielou farbou aj špeciálnymi efektmi, ako je parciálny lesk či mat."
 list = [
     "Objekty do veľkosti 60 × 40 cm a výšky až 10 cm",
@@ -222,7 +222,7 @@ meta = "Dlhodobý test"
 title = "CAD modeling"
 desc = "Máte nápad, ale chýbajú vám skúsenosti s 3D modelovaním? Pomôžeme vám premeniť myšlienku na funkčný model. Od zhotovenia návrhu až po samotnú 3D tlač vzoriek alebo hotových výrobkov."
 list = [
-    "Modelovanie v CAD softvéri",
+    "Modelovanie v CAD software",
     "Návrhy na zlepšenie",
     "Rýchle vyrobenie vzoriek",
 ]
