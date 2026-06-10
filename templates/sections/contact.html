@@ -13,13 +13,21 @@
         <a href="{{ config.extra.phone_href }}">{{ config.extra.phone }}</a>
       </div>
     </div>
-    <form class="contact-form" method="post" action="#" onsubmit="return false;" data-aos="fade-left">
+    <form class="contact-form"
+          data-hs-form="contact"
+          data-hs-portal="5453210"
+          data-hs-form-guid="e555ee43-646a-4a23-8227-111f37794aea"
+          data-hs-sending="{{ trans(key='form_sending', lang=lang) }}"
+          data-hs-success="{{ trans(key='form_success', lang=lang) }}"
+          data-hs-error="{{ trans(key='form_error', lang=lang) }} {{ config.extra.email }}"
+          data-aos="fade-left">
+      <input type="hidden" name="hs_language" value="{{ lang }}">
       <div class="contact-form__grid">
         <label>{{ trans(key='form_first_name', lang=lang) }} *
-          <input type="text" name="first_name" placeholder="{{ trans(key='form_first_name_ph', lang=lang) }}" required>
+          <input type="text" name="firstname" placeholder="{{ trans(key='form_first_name_ph', lang=lang) }}" required>
         </label>
         <label>{{ trans(key='form_last_name', lang=lang) }} *
-          <input type="text" name="last_name" placeholder="{{ trans(key='form_last_name_ph', lang=lang) }}" required>
+          <input type="text" name="lastname" placeholder="{{ trans(key='form_last_name_ph', lang=lang) }}" required>
         </label>
         <label>{{ trans(key='form_email', lang=lang) }} *
           <input type="email" name="email" placeholder="{{ trans(key='form_email_ph', lang=lang) }}" required>
@@ -27,18 +35,25 @@
         <label>{{ trans(key='form_service', lang=lang) }} *
           <select name="service" required>
             <option value="" disabled selected>{{ trans(key='form_select', lang=lang) }}</option>
-            <option>{{ trans(key='svc_large_3d', lang=lang) }}</option>
-            <option>{{ trans(key='svc_uv', lang=lang) }}</option>
-            <option>{{ trans(key='svc_custom_3d', lang=lang) }}</option>
-            <option>{{ trans(key='svc_durability', lang=lang) }}</option>
-            <option>{{ trans(key='svc_cad', lang=lang) }}</option>
+            <option value="Large-format 3D printing">{{ trans(key='svc_large_3d', lang=lang) }}</option>
+            <option value="Professional UV printing">{{ trans(key='svc_uv', lang=lang) }}</option>
+            <option value="Custom 3D printing">{{ trans(key='svc_custom_3d', lang=lang) }}</option>
+            <option value="Durability and functionality testing">{{ trans(key='svc_durability', lang=lang) }}</option>
+            <option value="CAD modeling">{{ trans(key='svc_cad', lang=lang) }}</option>
           </select>
         </label>
         <label class="contact-form__full">{{ trans(key='form_message', lang=lang) }} *
-          <textarea name="message" rows="4"></textarea>
+          <textarea name="message" rows="4" required></textarea>
         </label>
       </div>
       <button type="submit" class="btn btn--primary contact-form__submit">{{ trans(key='form_submit', lang=lang) }}</button>
+      <p class="contact-form__consent">
+        <span class="contact-form__consent-text">
+          {{ trans(key='form_consent_pre', lang=lang) }}
+          <a href="{{ trans(key='form_consent_link_href', lang=lang) | safe }}" target="_blank" rel="noopener noreferrer">{{ trans(key='form_consent_link', lang=lang) }}</a>{{ trans(key='form_consent_post', lang=lang) }}
+        </span>
+      </p>
+      <p class="contact-form__status" data-hs-status role="status" aria-live="polite" hidden></p>
     </form>
   </div>
 </section>

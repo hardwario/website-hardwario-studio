@@ -15,7 +15,7 @@ services_title = "Naše služby"
 services_prev_aria = "Předchozí obrázek"
 services_next_aria = "Další obrázek"
 projects_title = "Naše projekty"
-contracts_title = "Zakázky"
+contracts_title = "Řešení na míru"
 
 # ---- Kontakt ----
 contact_kicker = "Kontakt"
@@ -93,7 +93,7 @@ desc2 = "HARDWARIO má bohaté zkušenosti s optimalizací spotřeby a dlouhodob
 [extra.product]
 title = "Naše výrobky"
 desc = "Máte zájem o naše produkty? Podívejte se na HARDWARIO Store, kde najdete vše, co sami vyrábíme."
-button_label = "Přejít do eshopu"
+button_label = "Přejít do Store"
 href = "https://www.hardwario.store/cz/"
 
 # ---- Nabízíme ----
@@ -267,7 +267,7 @@ tag = "Test odolnosti"
 title = "Ověření odolnosti senzoru"
 desc = "Teplotní cykly od -40 do +170 °C pro venkovní IoT zařízení. Sledovali jsme chování elektroniky i materiálu krytu a odhalili slabé místo těsnění ještě před výrobou série, což zákazníkovi ušetřilo nákladné reklamace."
 
-# ---- Zakázky ----
+# ---- Řešení na míru ----
 [[extra.contracts]]
 image = "vyvoj.svg"
 imageAlt = "Ikona vývoje"

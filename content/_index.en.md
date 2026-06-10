@@ -93,7 +93,7 @@ desc2 = "HARDWARIO has extensive experience with power optimisation and long-ter
 [extra.product]
 title = "Our products"
 desc = "Interested in our products? Take a look at HARDWARIO Store, where you'll find everything we make ourselves."
-button_label = "Go to the e-shop"
+button_label = "Go to Store"
 href = "https://www.hardwario.store/"
 
 # ---- What we offer ----

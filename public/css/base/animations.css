@@ -35,6 +35,13 @@
 [data-aos-stagger].is-visible > *:nth-child(6) { transition-delay: 450ms; }
 [data-aos-stagger].is-visible > *:nth-child(7) { transition-delay: 540ms; }
 
+/* On mobile the horizontal slide of the services split (image fade-right /
+   text fade-left) feels jumpy once the columns stack — keep just the fade. */
+@media (max-width: 900px) {
+  .split [data-aos="fade-left"],
+  .split [data-aos="fade-right"] { transform: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-aos],
   [data-aos-stagger] > * {

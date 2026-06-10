@@ -4,8 +4,45 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-  <meta name="description" content="{% if section %}{{ section.description | default(value=config.description) }}{% elif page %}{{ page.description | default(value=config.description) }}{% else %}{{ config.description }}{% endif %}">
+  {%- set page_title = config.title -%}
+  {%- if section and section.title %}{% set page_title = section.title %}{% elif page and page.title %}{% set page_title = page.title %}{% endif -%}
+  {%- set page_desc = config.description -%}
+  {%- if section and section.description %}{% set page_desc = section.description %}{% elif page and page.description %}{% set page_desc = page.description %}{% endif -%}
+  {%- set og_image = get_url(path='images/big-3D-1.jpg') -%}
+  <title>{% block title %}{{ page_title }}{% endblock title %}</title>
+  <meta name="description" content="{{ page_desc }}">
+  <meta name="theme-color" content="#06367a">
+  <link rel="canonical" href="{{ current_url | safe }}">
+
+  {# Language alternates — single-page site, one homepage per language #}
+  <link rel="alternate" hreflang="cs" href="{{ config.base_url }}/">
+  <link rel="alternate" hreflang="en" href="{{ config.base_url }}/en/">
+  <link rel="alternate" hreflang="de" href="{{ config.base_url }}/de/">
+  <link rel="alternate" hreflang="sk" href="{{ config.base_url }}/sk/">
+  <link rel="alternate" hreflang="pl" href="{{ config.base_url }}/pl/">
+  <link rel="alternate" hreflang="x-default" href="{{ config.base_url }}/">
+
+  {# Open Graph #}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HARDWARIO Studio">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_desc }}">
+  <meta property="og:url" content="{{ current_url | safe }}">
+  <meta property="og:image" content="{{ og_image | safe }}">
+  {%- set locale = 'cs_CZ' -%}
+  {%- if lang == 'en' %}{% set locale = 'en_US' %}{% elif lang == 'de' %}{% set locale = 'de_DE' %}{% elif lang == 'sk' %}{% set locale = 'sk_SK' %}{% elif lang == 'pl' %}{% set locale = 'pl_PL' %}{% endif -%}
+  <meta property="og:locale" content="{{ locale }}">
+  {% if lang != 'cs' %}<meta property="og:locale:alternate" content="cs_CZ">{% endif %}
+  {% if lang != 'en' %}<meta property="og:locale:alternate" content="en_US">{% endif %}
+  {% if lang != 'de' %}<meta property="og:locale:alternate" content="de_DE">{% endif %}
+  {% if lang != 'sk' %}<meta property="og:locale:alternate" content="sk_SK">{% endif %}
+  {% if lang != 'pl' %}<meta property="og:locale:alternate" content="pl_PL">{% endif %}
+
+  {# Twitter / X #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_desc }}">
+  <meta name="twitter:image" content="{{ og_image | safe }}">
 
   <script>
     (function () {

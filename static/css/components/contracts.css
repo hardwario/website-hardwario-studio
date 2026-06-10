@@ -19,13 +19,16 @@
   border-color: color-mix(in srgb, var(--red) 45%, var(--border));
 }
 
-.contract__image {
+.contract__icon {
   flex: none;
   padding: 26px; border-radius: var(--radius);
   background: var(--surface-alt);
   width: 116px; height: 116px;
-  object-fit: contain;
+  display: flex; align-items: center; justify-content: center;
 }
+.contract__image { max-width: 100%; max-height: 100%; object-fit: contain; }
+/* Icons are a near-black monochrome SVG — lighten them on the dark tile */
+[data-theme="dark"] .contract__image { filter: invert(1); }
 .contract__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
 .contract__title { font-size: 28px; font-weight: 700; line-height: 1.2; letter-spacing: -.02em; color: var(--heading-ink); }
 .contract__desc { color: var(--text-soft); font-size: 16px; line-height: 28px; max-width: 900px; }
@@ -45,7 +48,7 @@
 
 @media (max-width: 900px) {
   .contract { flex-direction: column; align-items: flex-start; gap: 24px; padding: 28px 24px; }
-  .contract__image { width: 88px; height: 88px; padding: 18px; }
+  .contract__icon { width: 88px; height: 88px; padding: 18px; }
   .contract__title { font-size: 24px; }
   .contract__text { max-width: 100%; }
   .contract__buttons { flex-direction: row; flex-wrap: wrap; margin-left: 0; width: auto; }

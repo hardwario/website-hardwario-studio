@@ -8,7 +8,9 @@
     <div class="contracts__list">
       {% for c in d.contracts %}
       <article class="contract" data-aos="fade-up">
-        <img class="contract__image" src="{{ get_url(path='images/' ~ c.image) }}" alt="{{ c.imageAlt }}">
+        <div class="contract__icon">
+          <img class="contract__image" src="{{ get_url(path='images/' ~ c.image) }}" alt="{{ c.imageAlt }}">
+        </div>
         <div class="contract__text">
           <h3 class="contract__title">{{ c.title }}</h3>
           <p class="contract__desc">{{ c.desc }}</p>

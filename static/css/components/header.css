@@ -32,7 +32,7 @@
 
 /* Nav */
 .main-nav { display: flex; align-items: center; gap: 4px; }
-.main-nav a {
+.main-nav > a {
   padding: 7.5px 12px;
   font-size: 15px; font-weight: 500; line-height: 21px;
   white-space: nowrap;
@@ -40,8 +40,8 @@
   color: var(--text);
   transition: color .15s, background .15s;
 }
-.main-nav a:hover { color: var(--red); background: var(--border-hair); }
-.main-nav a.is-active { color: var(--red); }
+.main-nav > a:hover { color: var(--red); background: var(--border-hair); }
+.main-nav > a.is-active { color: var(--red); }
 
 /* Actions */
 .site-header__actions { display: flex; align-items: center; gap: 12px; }
@@ -58,37 +58,77 @@
 [data-theme="dark"] .theme-toggle__moon { display: none; }
 [data-theme="dark"] .theme-toggle__sun { display: block; }
 
-.lang-switch {
+/* Language switcher — globe + current code, hover dropdown (matches hardwario.com) */
+.lang-dropdown { position: relative; display: inline-flex; }
+.lang-dropdown__trigger {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 6px 8px; border-radius: 8px;
   color: var(--gray-6b); font-size: 14px; font-weight: 500;
-  transition: background .15s;
+  cursor: pointer;
+  transition: background .15s, color .15s;
 }
-.lang-switch svg { width: 16px; height: 16px; }
-.lang-switch:hover { background: var(--border-hair); }
+.lang-dropdown__trigger:hover { color: var(--red); }
+.lang-dropdown__globe { width: 16px; height: 16px; flex: none; }
+
+.lang-dropdown__menu {
+  position: absolute; top: 100%; right: 0;
+  padding-top: 10px;                 /* invisible bridge so hover doesn't drop */
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+  z-index: 60;
+}
+.lang-dropdown:hover .lang-dropdown__menu,
+.lang-dropdown:focus-within .lang-dropdown__menu {
+  opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+}
+.lang-dropdown__card {
+  min-width: 168px; padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+}
+.lang-dropdown__item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; color: var(--text);
+  transition: background .15s, color .15s;
+}
+.lang-dropdown__item:hover { background: var(--border-hair); }
+.lang-dropdown__code { width: 26px; flex: none; }
+.lang-dropdown__name { color: var(--gray-6b); }
+.lang-dropdown__item.is-active .lang-dropdown__code { color: var(--red); }
 
 .nav-toggle { display: none; width: 40px; height: 40px; flex-direction: column; gap: 5px; align-items: center; justify-content: center; }
 .nav-toggle span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform .25s ease, opacity .2s ease; transform-origin: center; }
 
 /* Menu controls (shown inside the mobile dropdown) */
 .nav__controls {
-  display: none; flex-direction: column; gap: 12px;
+  display: none; flex-direction: column; gap: 16px;
   margin-top: 8px; padding-top: 16px;
   border-top: 1px solid var(--border-hair);
 }
 .theme-toggle__label { display: none; }
-.nav__toggles { display: flex; gap: 8px; }
-.nav__controls .theme-toggle.icon-btn,
-.nav__controls .lang-switch {
-  width: auto; height: auto;
-  justify-content: flex-start; gap: 10px;
-  padding: 11px 14px; border-radius: 10px;
-  border: 1px solid var(--border); color: var(--text);
-}
-.nav__controls .theme-toggle.icon-btn { flex: 1; }
-.nav__controls .theme-toggle__label { display: inline; font-size: 15px; font-weight: 500; }
-.nav__controls .lang-switch span { font-size: 15px; font-weight: 500; }
 .nav__cta { margin-top: 2px; }
+
+/* Mobile language pills + theme toggle (ported from HARDWARIO Academy) */
+.nav__lang { display: flex; flex-direction: column; gap: 10px; }
+.nav__lang-label {
+  font-size: 12px; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--text-mute);
+}
+.nav__lang-row { display: flex; align-items: center; gap: 8px; }
+.nav__lang-row .lang-pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 46px; padding: 9px 14px; border-radius: 8px;
+  background: var(--surface-muted); color: var(--text);
+  font-size: 14px; font-weight: 600;
+  transition: background .15s, color .15s;
+}
+.nav__lang-row .lang-pill:hover { background: var(--border-hair); color: var(--text); }
+.nav__lang-row .lang-pill.is-active { background: var(--blue); color: #fff; }
+.nav__theme { margin-left: auto; }
 
 /* Hamburger -> X */
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }

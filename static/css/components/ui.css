@@ -2,34 +2,36 @@
    UI atoms — buttons, arrow links
    ========================================================================== */
 
-/* ---- Buttons ---- */
+/* ---- Buttons (ported from HARDWARIO Academy — padding-based sizing) ---- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 8px;
-  height: 48px;
-  padding: 0 32px;
+  padding: 16px 32px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 1;
   border: 1px solid transparent;
   white-space: nowrap;
   cursor: pointer;
-  transition: transform .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  text-transform: uppercase;
+  transition: filter .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
 }
-.btn:hover { transform: translateY(-1px); }
 .btn__icon { display: inline-flex; align-items: center; justify-content: center; flex: none; }
 .btn__icon svg { width: 18px; height: 18px; display: block; }
 
-.btn--sm { height: 40px; padding: 0 20px; font-size: 14px; }
-.btn--lg { height: 56px; padding: 0 36px; font-size: 16px; }
+.btn--sm { padding: 12px 24px; }
+.btn--lg { padding: 20px 40px; font-size: 14px; }
 .btn--block { width: 100%; }
 
 .btn--primary { background: var(--blue); border-color: var(--blue); color: #fff; }
-.btn--primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+.btn--primary:hover { background: var(--primary-btn-hover); border-color: var(--primary-btn-hover); }
+
 
 .btn--outline { background: transparent; border-color: var(--text); color: var(--text); }
 .btn--outline:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.btn--outline-light { background: transparent; border-color: #fff; color: #fff; }
+.btn--outline-light:hover { background: #fff; border-color: #fff; color: var(--dark-1a); }
 
 /* Translucent ghost — used over the hero video / dark imagery */
 .btn--ghost {

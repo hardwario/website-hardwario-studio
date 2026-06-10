@@ -1,40 +1,47 @@
 /* ==========================================================================
-   FAQ — copy + accordion. Design ported from HARDWARIO Academy.
+   FAQ — centered accordion. Design ported from HARDWARIO Academy.
    ========================================================================== */
 
-.faq { padding: 80px 0; }
-.faq__inner { display: grid; grid-template-columns: 634px 1fr; gap: 64px; align-items: flex-start; }
-.faq__copy { display: flex; flex-direction: column; gap: 32px; align-items: flex-start; }
-.faq__copy .lead { max-width: 592px; }
-.faq__list { display: flex; flex-direction: column; }
+.faq { padding: 80px 0; background: var(--surface-alt); }
+.faq__inner { display: flex; flex-direction: column; align-items: center; }
 
-.faq-item { border-bottom: 1px solid var(--border-soft); }
+.faq__head { text-align: center; margin-bottom: 56px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.faq__head .lead { max-width: 560px; }
+
+.faq__list { width: 100%; max-width: 960px; }
+
+.faq-item { border-top: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
 .faq-item summary {
   list-style: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px;
-  padding: 28px 0;
-  font-size: 24px; font-weight: 600; color: var(--heading); letter-spacing: .01em;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 24px;
+  padding: 20px 0;
+  font-size: 18px; font-weight: 700; color: var(--heading); letter-spacing: -.01em;
   transition: color .15s;
 }
 .faq-item summary:hover { color: var(--red); }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item__icon { position: relative; flex: none; width: 13px; height: 13px; }
-.faq-item__icon::before, .faq-item__icon::after {
-  content: ""; position: absolute; background: var(--red); border-radius: 2px;
-  left: 50%; top: 50%; transform: translate(-50%, -50%);
+.faq-item__q { line-height: 1.4; }
+
+.faq-chevron {
+  flex: none; width: 20px; height: 20px; margin-top: 2px;
+  color: var(--text-mute);
+  transition: transform .2s ease;
 }
-.faq-item__icon::before { width: 13px; height: 2px; }
-.faq-item__icon::after  { width: 2px; height: 13px; transition: transform .2s; }
-.faq-item[open] .faq-item__icon::after { transform: translate(-50%, -50%) scaleY(0); }
-.faq-item__answer { padding: 0 0 28px; }
-.faq-item__answer p { font-size: 18px; line-height: 26px; color: var(--text-soft); max-width: 475px; }
+.faq-item[open] .faq-chevron { transform: rotate(180deg); }
+
+.faq-item__answer { padding: 0 0 20px; }
+.faq-item__answer p { font-size: 16px; line-height: 26px; color: var(--text-soft); max-width: 760px; }
 .faq-item[open] .faq-item__answer { animation: faq-open .25s ease; }
 @keyframes faq-open { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
-@media (max-width: 1280px) {
-  .faq__inner { grid-template-columns: 1fr; gap: 32px; }
+.faq__cta { margin-top: 48px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-chevron { transition: none; }
+  .faq-item[open] .faq-item__answer { animation: none; }
 }
+
 @media (max-width: 720px) {
-  .faq-item summary { font-size: 20px; padding: 22px 0; }
-  .faq-item__answer p { font-size: 16px; }
+  .faq-item summary { font-size: 16px; }
 }

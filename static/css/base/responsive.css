@@ -17,13 +17,15 @@
     display: flex; flex-direction: column; align-items: stretch; gap: 2px;
     position: absolute; top: 72px; left: 0; right: 0;
     background: var(--bg); border-bottom: 1px solid var(--border-hair);
-    padding: 12px 20px 16px; box-shadow: var(--shadow-md);
+    /* horizontal padding matches .container so the link highlight + buttons line up with the logo */
+    padding: 12px 80px 16px; box-shadow: var(--shadow-md);
   }
-  .main-nav.is-open > a { padding: 12px 16px; font-size: 16px; }
+  .main-nav.is-open > a { padding: 12px 0; font-size: 16px; }
+  .main-nav.is-open > a:hover { background: transparent; }   /* text aligns with logo; no bg highlight */
   .main-nav.is-open .nav__controls { display: flex; }
   .nav-toggle { display: flex; }
   .site-header__actions .theme-toggle,
-  .site-header__actions .lang-switch,
+  .site-header__actions .lang-dropdown,
   .site-header__actions .btn { display: none; }
 }
 
@@ -37,6 +39,7 @@
   .container { padding-inline: 28px; }
 
   .site-header__inner { gap: 12px; }
+  .main-nav.is-open { padding-inline: 28px; }   /* keep menu flush with the logo */
 
   .section { padding: 56px 0; }
   .section--lg { padding: 64px 0; }

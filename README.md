@@ -1,73 +1,89 @@
-# HARDWARIO Studio — statický web (Zola)
+# HARDWARIO Studio — static website (Zola)
 
-Jednostránkový landing page pro **HARDWARIO Studio** (zakázkový 3D tisk, UV potisk,
-testování, výroba a vývoj), postavený ve statickém generátoru
-[Zola](https://www.getzola.org). Dvojjazyčný (CS/EN) se světlým i tmavým režimem.
+A single-page landing page for **HARDWARIO Studio** (custom 3D printing, UV printing,
+testing, manufacturing and development), built with the static site generator
+[Zola](https://www.getzola.org). Multilingual (CS / EN / DE / SK / PL) with light and dark modes.
 
-## Spuštění
+## Running
 
 ```bash
-zola serve     # vývojový server s živým reloadem (http://127.0.0.1:1111)
-zola build     # vygeneruje statický web do ./public
+zola serve     # dev server with live reload (http://127.0.0.1:1111)
+zola build     # generates the static site into ./public
 ```
 
-## Struktura
+## Structure
 
 ```
-config.toml                  # konfigurace + překlady [translations] + kontakty [extra]
+config.toml                  # configuration + translations [translations] + contacts [extra]
 content/
-  _index.md                  # VEŠKERÝ obsah landing page – čeština (data sekcí v [extra])
-  _index.en.md               # tentýž obsah v angličtině
+  _index.md                  # ALL landing-page content — Czech (section data in [extra])
+  _index.en.md               # the same content in English
 templates/
-  base.html                  # <head>, načtení CSS, přepínač motivu, hlavička + patička
-  index.html                 # pořadí sekcí landing page
-  macros.html                # tlačítko + SVG ikony (sociální sítě, šipka, externí odkaz)
+  base.html                  # <head>, CSS loading, SEO/social meta, theme switch, header + footer
+  index.html                 # landing-page section order
+  macros.html                # button + SVG icons (social networks, arrow, external link)
   partials/
-    header.html              # navigace, přepínač jazyka a motivu, CTA
-    footer.html              # patička (pobočky, navigace, odkazy)
-    logo-full.html           # logo pro desktop
-    logo-compact.html        # logo pro mobil
-  sections/                  # jednotlivé sekce stránky (hero, steps, services, …)
+    header.html              # navigation, language + theme switch, CTA
+    footer.html              # footer (branches, navigation, links)
+    logo-full.html           # logo for desktop
+    logo-compact.html        # logo for mobile
+  sections/                  # individual page sections (hero, steps, services, …)
 static/
   css/
-    base/                    # tokens, reset, typografie, layout, animace, responsive
-    components/              # styly jednotlivých sekcí a UI prvků
-    style.css                # přehled importů (pořadí načítání)
-  js/main.js                 # motiv, mobilní menu, přepínač jazyka, AOS, slidery
-  images/                    # fotky, loga, ikony
+    base/                    # tokens, reset, typography, layout, animations, responsive
+    components/              # styles for individual sections and UI atoms
+    style.css                # overview of imports (load order)
+  js/main.js                 # theme, mobile menu, language switch, FAQ accordion, AOS, sliders
+  images/                    # photos, logos, icons
 ```
 
-CSS je rozdělené na **base** (design tokeny, typografie, layout) a **components**
-(jedna sekce = jeden soubor). Načítá se po souborech v `base.html` (s cachebustem);
-`style.css` slouží jako přehled pořadí.
+CSS is split into **base** (design tokens, typography, layout) and **components**
+(one section = one file). Files are loaded individually in `base.html` (with cache busting);
+`style.css` serves as an overview of the load order.
 
-## Editace obsahu
+## Editing content
 
-Texty, služby, projekty, zakázky, reference atd. se needitují v HTML — jsou jako data
-v `content/_index.md` (čeština) a `content/_index.en.md` (angličtina), v sekci
-`[extra]`. Společné popisky (navigace, patička, formulář) jsou v `config.toml`
-v `[translations]` / `[languages.en.translations]`. Stačí upravit hodnoty a `zola`
-web přegeneruje.
+Texts, services, projects, contracts, testimonials etc. are not edited in HTML — they live
+as data in `content/_index.md` (Czech) and `content/_index.en.md` (English), in the
+`[extra]` section. Shared labels (navigation, footer, form) are in `config.toml` under
+`[translations]` / `[languages.en.translations]`. Just edit the values and `zola`
+regenerates the site.
 
-> **Pozor na pořadí v TOML:** všechny jednoduché klíče (`hero_title`, `services_title`,
-> `testimonials`, …) musí být **před** prvními tabulkami `[extra.about_us]`,
-> `[[extra.step]]`, `[[extra.service]]` atd.
+> **Mind the order in TOML:** all simple keys (`hero_title`, `services_title`,
+> `testimonials`, …) must come **before** the first tables `[extra.about_us]`,
+> `[[extra.step]]`, `[[extra.service]]` etc.
 
-## Motiv a jazyk
+## Theme and language
 
-- **Tmavý režim** používá sémantické tokeny v `css/base/tokens.css` a přepínač v hlavičce
-  (volba se ukládá do `localStorage`). V dark módu je akcentní červená `#F43F5E`;
-  v logu zůstává `#E30427` a mění se pouze šedý nápis na bílý.
-- **CS/EN** běží přes Zola i18n: čeština na `/`, angličtina na `/en/`. Volba se pamatuje
-  přes cookie.
+- **Dark mode** uses semantic tokens in `css/base/tokens.css` and a switch in the header
+  (the choice is stored in `localStorage`). In dark mode the accent red is `#F43F5E`;
+  the logo keeps `#E30427` and only the grey wordmark turns white.
+- **Languages** run through Zola i18n: Czech at `/`, the others at `/en/`, `/de/`,
+  `/sk/`, `/pl/`. The choice is remembered via a cookie. UI strings live in
+  `config.toml` (`[languages.<lang>.translations]`); page content lives in
+  `content/_index.<lang>.md`.
 
-## Co je potřeba doplnit
+## Contact form
 
-- **Reference** v sekci „Co říkají naši zákazníci" jsou **placeholder** (smyšlené citace,
-  označené komentářem v `_index.md` / `_index.en.md`) — nahraďte skutečnými.
-- **Texty projektů** vychází z reálných produktů HARDWARIO a.s. (CHESTER, CHESTER Clime) —
-  potvrďte/upřesněte detaily.
-- **FAQ** texty (cena, termíny, NDA…) ověřte s obchodem/výrobou, ať sedí realitě.
-- **Anglické texty** jsou překlad — projděte tón a formulace.
-- **Kontaktní formulář** nemá backend (`action="#"`) — napojte na svůj endpoint.
-- **`base_url`** v `config.toml` je placeholder (`https://studio.hardwario.com`).
+The form posts to **HubSpot Forms API v3** (configured via `data-hs-*` attributes in
+`templates/sections/contact.html`, handled in `static/js/main.js`). GDPR consent is
+implicit — a notice below the Send button states that submitting the form constitutes
+agreement, with a link to the privacy policy. That consent text is mirrored into HubSpot
+via `legalConsentOptions` on submit.
+
+## SEO / social
+
+`templates/base.html` outputs the page title and description, a canonical URL,
+`hreflang` alternates (CS/EN), and Open Graph + Twitter card tags. The shared social
+preview image is `static/images/big-3D-1.jpg` — replace it with a dedicated 1200×630
+image if you want a tailored share card.
+
+## To be completed
+
+- **Testimonials** in the "What our customers say" section are **placeholders** (fictional
+  quotes, marked with a comment in `_index.md` / `_index.en.md`) — replace with real ones.
+- **Project texts** are based on real HARDWARIO a.s. products (CHESTER, CHESTER Clime) —
+  confirm/refine the details.
+- **FAQ** texts (pricing, lead times, NDA…) should be verified with sales/production.
+- **English copy** is a translation — review the tone and wording.
+- **`base_url`** in `config.toml` is `https://studio.hardwario.com` — update if it changes.

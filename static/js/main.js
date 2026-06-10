@@ -45,6 +45,19 @@
   );
 })();
 
+/* FAQ — single open accordion -------------------------------------------- */
+(function () {
+  const items = document.querySelectorAll(".faq-item");
+  if (!items.length) return;
+  items.forEach((item) => {
+    item.addEventListener("toggle", () => {
+      if (item.open) {
+        items.forEach((other) => { if (other !== item) other.open = false; });
+      }
+    });
+  });
+})();
+
 /* Animate on scroll ------------------------------------------------------ */
 (function () {
   const els = document.querySelectorAll("[data-aos], [data-aos-stagger]");
@@ -240,7 +253,7 @@
     document.cookie = "lang=" + v + ";path=/;max-age=31536000;samesite=lax";
   }
   function getCookie() {
-    const m = document.cookie.match(/(?:^|;\s*)lang=(cs|en)\b/);
+    const m = document.cookie.match(/(?:^|;\s*)lang=(cs|en|de|sk|pl)\b/);
     return m ? m[1] : null;
   }
   document.querySelectorAll("[data-lang-switch]").forEach((el) => {
@@ -248,8 +261,133 @@
   });
   const pref = getCookie();
   if (pref && pref !== current) {
-    location.replace(pref === "en" ? "/en/" : "/");
+    location.replace(pref === "cs" ? "/" : "/" + pref + "/");
   }
+})();
+
+/* Contact form → HubSpot Forms API v3 ------------------------------------ */
+(function () {
+  const form = document.querySelector('form[data-hs-form]');
+  if (!form) return;
+
+  const portal = form.dataset.hsPortal;
+  const guid = form.dataset.hsFormGuid;
+  if (!portal || !guid) return;
+
+  const endpoint = "https://api.hsforms.com/submissions/v3/integration/submit/" + portal + "/" + guid;
+  const status = form.querySelector("[data-hs-status]");
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.textContent : "";
+
+  const labels = {
+    sending: form.dataset.hsSending || "Sending…",
+    success: form.dataset.hsSuccess || "Thanks!",
+    error: form.dataset.hsError || "Something went wrong.",
+  };
+
+  function setStatus(text, kind) {
+    if (!status) return;
+    status.hidden = false;
+    status.textContent = text;
+    status.classList.remove("is-success", "is-error");
+    if (kind) status.classList.add("is-" + kind);
+  }
+  function clearStatus() {
+    if (!status) return;
+    status.hidden = true;
+    status.textContent = "";
+    status.classList.remove("is-success", "is-error");
+  }
+  function getHutk() {
+    const m = document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/);
+    return m ? m[1] : undefined;
+  }
+  function consentText(form) {
+    const span = form.querySelector(".contact-form__consent-text");
+    return span ? span.textContent.replace(/\s+/g, " ").trim()
+                : "I agree to allow HARDWARIO to store and process my personal data.";
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearStatus();
+
+    // Manual validation for custom-select fields (native required was stripped
+    // by the cselect wrapper since hidden + required breaks form submission).
+    let firstInvalid = null;
+    form.querySelectorAll(".cselect[data-required='true']").forEach((wrap) => {
+      const sel = wrap.parentElement && wrap.parentElement.querySelector("select");
+      const isEmpty = !sel || !sel.value;
+      wrap.classList.toggle("is-invalid", isEmpty);
+      if (isEmpty && !firstInvalid) firstInvalid = wrap.querySelector(".cselect__btn") || wrap;
+    });
+    if (firstInvalid) {
+      firstInvalid.focus();
+      setStatus(labels.error, "error");
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = labels.sending;
+    }
+
+    const fd = new FormData(form);
+    const fields = [];
+    for (const [name, value] of fd.entries()) {
+      if (typeof value !== "string" || !value) continue;
+      fields.push({ name, value });
+    }
+
+    const context = { pageUri: location.href, pageName: document.title };
+    const hutk = getHutk();
+    if (hutk) context.hutk = hutk;
+
+    // Implicit consent: by submitting, the user agrees to the privacy notice
+    // shown above the submit button. We mirror that text into HubSpot so the
+    // consent record on the contact reflects what they actually saw.
+    const body = {
+      fields,
+      context,
+      legalConsentOptions: {
+        consent: { consentToProcess: true, text: consentText(form) },
+      },
+    };
+
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (res.ok) {
+        setStatus(labels.success, "success");
+        form.reset();
+        // Reset the custom select visual to its placeholder
+        const native = form.querySelector('select[name="service"]');
+        const cselect = native && native.parentElement && native.parentElement.querySelector(".cselect");
+        if (native && cselect) {
+          const valEl = cselect.querySelector(".cselect__value");
+          const ph = native.querySelector('option[value=""]');
+          if (valEl && ph) { valEl.textContent = ph.textContent; cselect.classList.add("is-placeholder"); }
+          cselect.querySelectorAll(".cselect__opt").forEach((li) => li.removeAttribute("aria-selected"));
+        }
+      } else {
+        const detail = await res.text().catch(() => "");
+        console.error("HubSpot form submission failed:", res.status, detail);
+        setStatus(labels.error, "error");
+      }
+    } catch (err) {
+      console.error("HubSpot form submission threw:", err);
+      setStatus(labels.error, "error");
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    }
+  });
 })();
 
 /* Vlastní select (dropdown) – stejný jako v Academy ---------------------- */
@@ -301,6 +439,14 @@
     native.after(wrap);
     native.hidden = true;
     native.setAttribute("tabindex", "-1");
+    // Chrome refuses to submit a form with a `hidden + required` field that is
+    // empty (and fails silently with no UI). Strip native required and let our
+    // submit handler validate the value manually — the wrapper marks the field
+    // as required so the handler still enforces it.
+    if (native.required) {
+      wrap.dataset.required = "true";
+      native.removeAttribute("required");
+    }
 
     let active = -1;
     function setActive(i) {
@@ -321,6 +467,7 @@
       optionEls.forEach((x) => x.removeAttribute("aria-selected"));
       li.setAttribute("aria-selected", "true");
       syncLabel();
+      wrap.classList.remove("is-invalid");
       native.dispatchEvent(new Event("change", { bubbles: true }));
       close();
       btn.focus();
