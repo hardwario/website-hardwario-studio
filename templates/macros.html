@@ -1,6 +1,6 @@
 {# Button #}
 {% macro button(label, href="#", variant="primary", icon="", classes="", attrs="") %}
-<a class="btn btn--{{ variant }}{% if classes %} {{ classes }}{% endif %}" href="{{ href }}"{% if attrs %} {{ attrs | safe }}{% endif %}>
+<a class="btn btn--{{ variant }}{% if classes %} {{ classes }}{% endif %}" href="{{ href }}"{% if href is starting_with("http") %} target="_blank" rel="noopener noreferrer"{% endif %}{% if attrs %} {{ attrs | safe }}{% endif %}>
   <span>{{ label }}</span>
   {% if icon == "arrow-right" %}
   <span class="btn__icon" aria-hidden="true">
