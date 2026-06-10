@@ -115,9 +115,9 @@
   color: var(--text-mute); letter-spacing: 0;
 }
 .contact-form__consent-text a {
-  color: var(--text); text-decoration: underline; text-underline-offset: 2px;
+  color: var(--red); text-decoration: underline; text-underline-offset: 2px;
 }
-.contact-form__consent-text a:hover { color: var(--red); }
+.contact-form__consent-text a:hover { opacity: .8; }
 
 /* Submission status */
 .contact-form__status {
